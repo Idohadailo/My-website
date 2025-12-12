@@ -1,0 +1,137 @@
+/* === Quick Menu Specific Styles === */
+
+// --- Переменные (только уникальные) ---
+$button-width: 100px;
+$separator-color: rgba(255, 255, 255, 0.1);
+
+// --- Основной контейнер ---
+#quick-menu-container {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  z-index: 1000;
+
+  // --- Кнопка (основа) ---
+  #toggle-btn {
+    position: relative;
+    width: $button-width;
+    padding: 20px 10px;
+    background: var(--modal-bg-gradient); // ← Используем переменную из modal-all
+    backdrop-filter: blur(8px);
+    color: var(--color-primary-light);
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--modal-border-radius) 0 0 var(--modal-border-radius);
+    transition: border-radius 0.3s ease-in-out, background-color 0.2s, color 0.2s;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    .dots { 
+      line-height: 1; 
+    }
+
+    &:hover {
+      background-color: var(--btn-orange);
+      color: var(--color-primary-light);
+    }
+  }
+
+  // --- Список меню (выезжающая часть) ---
+  .menu-items {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 100%;
+    background: var(--modal-bg-gradient); // ← Используем переменную
+    border-radius: var(--modal-border-radius) 0 0 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-bottom: 1px solid $separator-color;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+
+    li {
+      border-bottom: 1px solid $separator-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 10px;
+      color: var(--color-primary-light);
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
+      font-size: 12px;
+
+      &:hover {
+        background-color: var(--btn-orange);
+        color: var(--color-primary-light);
+      }
+
+      i { 
+        font-size: 24px; 
+      }
+    }
+  }
+
+  // --- КНОПКА ЗАКРЫТИЯ (уже есть базовые стили в modal-all) ---
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s;
+    
+    // Остальные стили наследуются от modal-all.scss
+  }
+
+  // ===== ЛОГИКА ПЕРЕКЛЮЧЕНИЯ =====
+  &:not(.is-open) {
+    .menu-items {
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .state-open { 
+      display: none; 
+    }
+  }
+
+  &.is-open {
+    .menu-items {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .state-closed { 
+      display: none; 
+    }
+    
+    #toggle-btn {
+      border-top-left-radius: 0;
+    }
+
+    .close-btn {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}

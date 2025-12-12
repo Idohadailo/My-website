@@ -1,0 +1,150 @@
+/* === Panels Specific Styles === */
+
+$button-width: 100px;
+$panel-width: 380px;
+$panel-min-height: 280px;
+
+%panel-base {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin-top: 70px;
+  transform: translate(110%, -50%);
+  transition: transform 0.4s ease-in-out;
+  height: auto;
+  min-height: $panel-min-height;
+  border-radius: var(--modal-border-radius);
+  box-shadow: -5px 0px 30px rgba(0, 0, 0, 0.4);
+  z-index: 950;
+  width: 100%;
+  max-width: $panel-width;
+  background: var(--modal-bg-gradient);
+  color: var(--color-primary-light);
+  display: flex;
+  flex-direction: column;
+
+  &.is-visible {
+    transform: translate(0, -50%);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+}
+
+// --- КОНТАКТЫ ---
+#contact-panel {
+  @extend %panel-base;
+
+  .panel-body {
+    padding: 60px 30px;
+    padding-right: calc(#{$button-width} + 20px);
+
+    h3 { 
+      font-weight: 700; 
+      margin-bottom: 25px; 
+      color: var(--btn-orange);
+      font-size: 24px;
+    }
+    
+    .studio-name { 
+      margin-bottom: 25px;
+      color: var(--color-primary-light);
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 12px; // ← Уменьшил gap для компактности
+      margin-bottom: 12px;
+      padding: 0; // ← Убрал padding
+      text-decoration: none;
+      color: var(--color-primary-light);
+      background: transparent; // ← Убрал серый фон
+      border-radius: 0; // ← Убрал скругление
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: var(--btn-orange); // ← При наведении весь блок оранжевый
+        
+        .contact-icon {
+          transform: scale(1.1); // ← Иконка увеличивается
+        }
+      }
+      
+      span {
+        font-size: 16px; // ← Увеличил размер текста
+        line-height: 1;
+        white-space: nowrap; // ← Текст в одну строку
+      }
+    }
+    
+    // Стили для SVG иконок контактов
+    .contact-icon {
+      width: 24px; // ← Увеличил размер иконок
+      height: 24px;
+      min-width: 24px;
+      color: var(--btn-orange);
+      stroke: currentColor;
+      fill: none;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+  }
+}
+
+// --- СОЦСЕТИ ---
+#social-panel {
+  @extend %panel-base;
+
+  .panel-body {
+    padding: 60px 30px;
+    padding-right: calc(#{$button-width} + 20px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    
+    h3 { 
+      font-weight: 700; 
+      margin-bottom: 25px;
+      color: var(--btn-orange);
+      font-size: 24px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+
+      a {
+        color: var(--color-primary-light);
+        transition: transform 0.2s, color 0.2s;
+        
+        &:hover {
+          transform: scale(1.2);
+          color: var(--btn-orange);
+        }
+      }
+    }
+    
+    // Стили для SVG иконок соцсетей
+    .social-icon {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+      stroke: currentColor;
+    }
+  }
+}

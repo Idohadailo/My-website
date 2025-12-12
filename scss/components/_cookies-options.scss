@@ -1,0 +1,122 @@
+/* === Cookie Modal Specific Styles === */
+
+/* Cookie modal content - уменьшенный max-width */
+.cookie-modal-content {
+  max-width: 600px;
+}
+
+/* Cookie заголовок - меньший размер */
+.cookie-modal-content h2 {
+  font-size: 22px;
+}
+
+/* === Cookie Buttons === */
+.cookie-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.btn-option {
+  flex: 1;
+}
+
+/* === Cookie Text === */
+.cookie-text-scroll {
+  margin-bottom: 25px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-primary-light);
+}
+
+/* === Cookie Options === */
+.cookie-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 0;
+}
+
+.cookie-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+  
+  &:not(.disabled):hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  span:first-child {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary-light);
+  }
+  
+  /* Скрываем стандартный чекбокс */
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
+/* === Custom Checkbox === */
+.checkmark {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--btn-orange);
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-size: 18px;
+  color: transparent;
+  flex-shrink: 0;
+  
+  &.disabled {
+    background-color: var(--btn-orange);
+    border-color: var(--btn-orange);
+    color: var(--color-primary-light);
+  }
+}
+
+/* Когда чекбокс выбран */
+.cookie-option input:checked + .checkmark {
+  background-color: var(--btn-orange);
+  border-color: var(--btn-orange);
+  color: var(--color-primary-light);
+}
+
+/* === Cookie Legal Links === */
+.cookie-legal-links {
+  text-align: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  
+  a {
+    color: var(--btn-orange);
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--btn-orange-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+.separator {
+  margin: 0 10px;
+  color: rgba(255, 255, 255, 0.3);
+}
