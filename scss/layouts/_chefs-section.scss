@@ -36,14 +36,14 @@
     flex-wrap: wrap;
     gap: 30px;
 
-    @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       gap: 40px 30px;
     }
   }
 
   &__item {
-    @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: 768px) {
       flex-basis: calc((100% - 30px) / 2);
     }
   }

@@ -1,7 +1,7 @@
 .advantages-section {
   padding: 40px 0 20px;
 
-  @media screen and (min-width: $bp-tablet) {
+  @media screen and (min-width: 768px) {
     padding: 16px 0;
     background-color: var(--color-brand-normal);
   }
@@ -14,7 +14,7 @@
     background-color: var(--color-brand-light);
     border-radius: 24px;
 
-    @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
       gap: 40px;
@@ -27,7 +27,7 @@
     font-size: 14px;
     font-weight: 300;
 
-    @media screen and (min-width: $bp-tablet) {
+    @media screen and (min-width: 768px) {
       color: var(--color-primary-light);
       font-size: 20px;
     }
