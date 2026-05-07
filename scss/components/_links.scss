@@ -1,11 +1,27 @@
 .link {
-  color: var(--color-primary-light);
+  color: var(--color-light);
   text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   transition: color 0.3s;
-  
-  &:hover {
-    color: var(--color-brand-orange);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
+  position: relative;
+}
+
+.link:hover {
+  color: var(--color-cyan);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gradient-brand);
+  transition: width 0.2s ease;
+}
+
+.link:hover::after {
+  width: 100%;
 }

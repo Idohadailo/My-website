@@ -10,15 +10,18 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+          />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">      
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header__container">
           <nav class="header__nav">
-            <a href="/">
-              <img src="./images/logo.svg" alt="Company Logo" />
+            <a class="header__logo" href="/">
+              <img src="./images/logo.png" alt="Company Logo" />
             </a>
             <ul class="header__menu">
               <li>
@@ -87,19 +90,27 @@
       </div>
     </header>
     <main>
-      <section class="hero-section">
-        <div class="container">
-          <h1 class="hero-section__title">
-            <span class="text-brand">IT</span> automation
-          </h1>
-          <button
-            class="hero-section__button button modal-btn-open"
-            type="button"
-          >
-            Замовити дзвінок
-          </button>
-        </div>
-      </section>
+<section class="hero-section">
+  <img class="hero-section__bg" src="./images/hero-image.png" alt="Main Image" />
+  <div class="container">
+    <p class="hero-section__location">ELMSHORN · HAMBURG METRO REGION</p>
+    <h1 class="hero-section__title">
+      <span class="hero-gradient-text">Automation</span> that<br>actually works
+    </h1>
+    <p class="hero-section__subtitle">
+      I connect your systems, streamline your processes and
+      build automations you can rely on every single day.
+    </p>
+    <div class="hero-section__buttons">
+      <button class="hero-section__button button modal-btn-open" type="button">
+        Free Consultation →
+      </button>
+      <button class="hero-section__button-ghost" type="button">
+        Explore Services
+      </button>
+    </div>
+  </div>
+</section>
       <!-- <section class="advantages-section">
         <div class="container">
           <h2 class="visually-hidden">Наші переваги</h2>

@@ -3,66 +3,88 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: rgba(0, 0, 0, 0.5); // Черный цвет с 50% прозрачности
-  z-index: 1000; // Гарантирует, что хедер будет поверх других элементов
-  // Рекомендую добавить тень для лучшего отделения от контента
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-   // Плавный переход, если захотите менять фон при скролле
   transition: background-color 0.3s ease;
+}
 
-  @media screen and (min-width: $bp-desktop) {
+@media screen and (min-width: 1280px) {
+  .header {
     padding-top: 16px;
     padding-bottom: 16px;
   }
+}
 
-  &__container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 70px;
+}
 
-  &__nav {
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.header__logo img {
+  width: auto;
+  height: 100px;
+  display: block;
+  object-fit: contain;
+}
+
+.header__menu {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .header__menu {
     display: flex;
-    align-items: center;
+    gap: 64px;
     flex-grow: 1;
-    gap: 40px;
+    justify-content: flex-end;
   }
+}
 
-  &__menu {
-    display: none;     
-
-    @media screen and (min-width: $bp-tablet) {
-      display: flex;
-      gap: 64px;
-      flex-grow: 1;
-      justify-content: flex-end;
-    }
-
-    @media screen and (min-width: $bp-desktop) {
-      justify-content: center;
-    }
+@media screen and (min-width: 1280px) {
+  .header__menu {
+    justify-content: center;
   }
+}
 
-  &__button {
+.header__button {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .header__button {
+    display: block;
+  }
+}
+
+.header__burger {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  fill: var(--color-light);
+}
+
+@media screen and (min-width: 768px) {
+  .header__burger {
     display: none;
-
-    @media screen and (min-width: $bp-desktop) {
-      display: block;
-    }
-  }
-
-  &__burger {
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    fill: var(--color-primary-light);
-
-    @media screen and (min-width: $bp-tablet) {
-      display: none;
-    }
   }
 }

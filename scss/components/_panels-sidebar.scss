@@ -1,10 +1,5 @@
-/* === Panels Specific Styles === */
-
-$button-width: 100px;
-$panel-width: 380px;
-$panel-min-height: 280px;
-
-%panel-base {
+#social-panel,
+#contact-panel {
   position: fixed;
   top: 50%;
   right: 0;
@@ -12,139 +7,262 @@ $panel-min-height: 280px;
   transform: translate(110%, -50%);
   transition: transform 0.4s ease-in-out;
   height: auto;
-  min-height: $panel-min-height;
-  border-radius: var(--modal-border-radius);
+  min-height: 280px;
+  border-radius: 4px 0 0 4px;
   box-shadow: -5px 0px 30px rgba(0, 0, 0, 0.4);
   z-index: 950;
   width: 100%;
-  max-width: $panel-width;
-  background: var(--modal-bg-gradient);
-  color: var(--color-primary-light);
+  max-width: 380px;
+  background: var(--modal-bg);
+  color: var(--color-light);
   display: flex;
   flex-direction: column;
-
-  &.is-visible {
-    transform: translate(0, -50%);
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
-  }
 }
 
-// --- КОНТАКТЫ ---
-#contact-panel {
-  @extend %panel-base;
-
-  .panel-body {
-    padding: 60px 30px;
-    padding-right: calc(#{$button-width} + 20px);
-
-    h3 { 
-      font-weight: 700; 
-      margin-bottom: 25px; 
-      color: var(--btn-orange);
-      font-size: 24px;
-    }
-    
-    .studio-name { 
-      margin-bottom: 25px;
-      color: var(--color-primary-light);
-      font-size: 18px;
-      font-weight: 600;
-    }
-    
-    .contact-info {
-      display: flex;
-      align-items: center;
-      gap: 12px; // ← Уменьшил gap для компактности
-      margin-bottom: 12px;
-      padding: 0; // ← Убрал padding
-      text-decoration: none;
-      color: var(--color-primary-light);
-      background: transparent; // ← Убрал серый фон
-      border-radius: 0; // ← Убрал скругление
-      transition: all 0.2s ease;
-      
-      &:hover {
-        color: var(--btn-orange); // ← При наведении весь блок оранжевый
-        
-        .contact-icon {
-          transform: scale(1.1); // ← Иконка увеличивается
-        }
-      }
-      
-      span {
-        font-size: 16px; // ← Увеличил размер текста
-        line-height: 1;
-        white-space: nowrap; // ← Текст в одну строку
-      }
-    }
-    
-    // Стили для SVG иконок контактов
-    .contact-icon {
-      width: 24px; // ← Увеличил размер иконок
-      height: 24px;
-      min-width: 24px;
-      color: var(--btn-orange);
-      stroke: currentColor;
-      fill: none;
-      flex-shrink: 0;
-      transition: transform 0.2s ease;
-    }
-  }
+.is-visible#social-panel,
+.is-visible#contact-panel {
+  transform: translate(0, -50%);
 }
 
-// --- СОЦСЕТИ ---
-#social-panel {
-  @extend %panel-base;
+#social-panel .close-btn,
+#contact-panel .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+}
 
-  .panel-body {
-    padding: 60px 30px;
-    padding-right: calc(#{$button-width} + 20px);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    
-    h3 { 
-      font-weight: 700; 
-      margin-bottom: 25px;
-      color: var(--btn-orange);
-      font-size: 24px;
-    }
+#contact-panel .panel-body {
+  padding: 60px 30px;
+  padding-right: calc(100px + 20px);
+}
 
-    .social-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
+#contact-panel .panel-body h3 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--color-teal);
+  font-size: 24px;
+}
 
-      a {
-        color: var(--color-primary-light);
-        transition: transform 0.2s, color 0.2s;
-        
-        &:hover {
-          transform: scale(1.2);
-          color: var(--btn-orange);
-        }
-      }
-    }
-    
-    // Стили для SVG иконок соцсетей
-    .social-icon {
-      width: 28px;
-      height: 28px;
-      fill: currentColor;
-      stroke: currentColor;
-    }
-  }
+#contact-panel .panel-body .studio-name {
+  margin-bottom: 25px;
+  color: var(--color-light);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#contact-panel .panel-body .contact-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 0;
+  text-decoration: none;
+  color: var(--color-light);
+  background: transparent;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+#contact-panel .panel-body .contact-info:hover {
+  color: var(--color-teal);
+}
+
+#contact-panel .panel-body .contact-info:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+#contact-panel .panel-body .contact-info span {
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#contact-panel .panel-body .contact-icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: var(--color-teal);
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+#social-panel .panel-body {
+  padding: 60px 30px;
+  padding-right: calc(100px + 20px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+#social-panel .panel-body h3 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--color-teal);
+  font-size: 24px;
+}
+
+#social-panel .panel-body .social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+#social-panel .panel-body .social-links a {
+  color: var(--color-light);
+  transition: transform 0.2s, color 0.2s;
+}
+
+#social-panel .panel-body .social-links a:hover {
+  transform: scale(1.2);
+  color: var(--color-teal);
+}
+
+#social-panel .panel-body .social-icon {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Quick Menu */
+#quick-menu-container {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  z-index: 1000;
+}
+
+#quick-menu-container #toggle-btn {
+  position: relative;
+  width: 100px;
+  padding: 20px 10px;
+  background: var(--modal-bg);
+  backdrop-filter: blur(8px);
+  color: var(--color-light);
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid rgba(0, 191, 255, 0.2);
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+#quick-menu-container #toggle-btn:hover {
+  background: var(--gradient-brand);
+  color: var(--color-light);
+}
+
+#quick-menu-container .menu-items {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 100%;
+  background: var(--modal-bg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+#quick-menu-container .menu-items li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#quick-menu-container .menu-items li:last-child {
+  border-bottom: none;
+}
+
+#quick-menu-container .menu-items li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 10px;
+  color: var(--color-light);
+  text-decoration: none;
+  font-size: 12px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 0;
+}
+
+#quick-menu-container .menu-items li a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-brand);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+#quick-menu-container .menu-items li a:hover::before {
+  opacity: 1;
+}
+
+#quick-menu-container .menu-items li a:hover {
+  color: var(--color-white);
+}
+
+#quick-menu-container .menu-items li a i {
+  font-size: 24px;
+}
+
+#quick-menu-container .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+  border-radius: 0;
+  border: 1px solid var(--color-cyan);
+  color: var(--color-cyan);
+}
+
+#quick-menu-container:not(.is-open) .menu-items {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#quick-menu-container:not(.is-open) .state-open { display: none; }
+
+#quick-menu-container.is-open .menu-items {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#quick-menu-container.is-open .state-closed { display: none; }
+
+#quick-menu-container.is-open #toggle-btn {
+  border-top-left-radius: 0;
+}
+
+#quick-menu-container.is-open .close-btn {
+  opacity: 1;
+  pointer-events: all;
 }

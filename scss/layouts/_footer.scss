@@ -1,135 +1,94 @@
 .footer {
   padding: 32px 0;
   position: relative;
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-dark);
   background-size: cover;
   background-position: center;
+  border-top: 1px solid rgba(0, 191, 255, 0.15); /* тонкая линия вместо декора */
+}
 
-  &::before,
-  &::after {
-    position: absolute;
-    bottom: 0;
-    background-repeat: no-repeat;
-    content: '';
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__container {
+    flex-direction: row;
   }
+}
 
-  &::before {
-    width: 100px;
-    height: 90px;
-    right: 0;
-    background-image: url('../images/decor-bread-small-mobile.png');
+.footer__nav,
+.footer__address {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
 
-    @media screen and (min-width: $bp-tablet) {
-      left: 0;
-      right: auto;
-      width: 180px;
-      height: 120px;
-      background-image: url('../images/decor-bread-small.png');
-    }
+@media screen and (min-width: 768px) {
+  .footer__nav,
+  .footer__address {
+    flex-direction: row;
+    flex-basis: 50%;
+    text-align: left;
   }
+}
 
-  &::after {
-    width: 85px;
-    height: 205px;
-    top: 0;
-    left: 0;
-    background-image: url('../images/decor-bread-large-mobile.png');
+.footer__logo { flex-grow: 1; }
 
-    @media screen and (min-width: $bp-tablet) {
-      right: 0;
-      top: auto;
-      left: auto;
-      width: 380px;
-      height: 190px;
-      background-image: url('../images/decor-bread-large.png');
-    }
+.footer__menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.footer__address-list,
+.footer__address-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+.footer__address-link {
+  color: var(--color-light);
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.footer__address-link:hover {
+  color: var(--color-teal);
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__socials {
+    justify-content: flex-start;
   }
+}
 
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.footer__socials-icon {
+  display: block;
+  color: var(--color-light);
+  transition: color 0.3s, transform 0.3s;
+}
 
-    @media screen and (min-width: $bp-tablet) {
-      flex-direction: row;
-    }
-  }
+.footer__socials-icon:hover {
+  color: var(--color-teal);
+  transform: scale(1.1);
+}
 
-  &__nav,
-  &__address {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-
-    @media screen and (min-width: $bp-tablet) {
-      flex-direction: row;
-      flex-basis: 50%;
-      text-align: left;
-    }
-  }
-
-  &__logo {
-    flex-grow: 1;
-  }
-
-  &__menu {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 16px;
-  }
-
-  &__address-list,
-  &__address-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 16px;
-  }
-
-  &__address-list,
-  &__address-info {
-    flex-grow: 1;
-  }
-
-  &__address-link {
-    color: var(--color-primary-light);
-    font-size: 16px;
-    font-weight: 300;
-    text-decoration: none;
-  }
-
-  &__address-link:hover {
-    color: var(--color-brand-orange);
-  }
-
-  &__socials {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 16px;
-
-    @media screen and (min-width: $bp-tablet) {
-      justify-content: flex-start;
-    }
-  }
-
-  &__socials-icon {
-    color: var(--color-primary-light);
-    transition: color 0.3s, transform 0.3s;
-    display: inline-block;
-  }
-
-  &__socials-icon:hover {
-    color: var(--color-brand-orange);
-    transform: scale(1.1);
-  }
- &__socials-icon {
-    display: block;
-  }
-  &__address-copyright {
-    color: var(--color-secondary-dark);
-    font-size: 14px;
-  }
+.footer__address-copyright {
+  color: var(--color-dark-secondary);
+  font-size: 14px;
 }

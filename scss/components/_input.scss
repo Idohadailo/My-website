@@ -1,38 +1,31 @@
-.input {
-  position: relative;
+.input__control {
+  padding: 8px 24px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.17;
+  border: 1px solid var(--color-dark-secondary);
+  border-radius: 0;                  /* было 8px */
+  background-color: transparent;
+  color: var(--color-light);
+}
 
-  &__label {
-    position: absolute;
-    top: 16px;
-    left: 42px;
-  }
+.input__control:focus {
+  border-color: var(--color-teal);
+  outline: none;
+}
 
-  &__control {
-    padding: 8px 24px;
-    width: 100%;
-    font-size: 16px;
-    line-height: 1.17;
-    border: 1px solid var(--color-secondary-dark);
-    border-radius: 8px;
-    background-color: transparent;
+.input__control::placeholder {
+  color: var(--color-dark-secondary);
+  font-size: 16px;
+  line-height: 1.17;
+}
 
-    &:focus {
-      border-color: var(--color-brand-normal);
-      outline: none;
-    }
+.input__control:focus::placeholder {
+  color: var(--color-light);
+}
 
-    &::placeholder {
-      color: var(--color-secondary-dark);
-      font-size: 16px;
-      line-height: 1.17;
-    }
-
-    &:focus::placeholder {
-      color: var(--color-primary-dark);
-    }
-
-    @media screen and (min-width: $bp-tablet) {
-      padding: 16px 42px;
-    }
+@media screen and (min-width: 768px) {
+  .input__control {
+    padding: 16px 42px;
   }
 }

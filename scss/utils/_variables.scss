@@ -1,14 +1,29 @@
 :root {
-  --color-primary-darkblue: #0f1025;
-  --color-primary-light: #FFFFFF;
-  --color-secondary-dark: #a28268;
-/*   --color-brand-dark: #465929;
-  --color-brand-normal: #819b57; */
-  --color-brand-light: #cfcfbc;
-  --color-brand-orange: #f15a24;
-  --color-brand-darkgrau: #00282e;
-}
+  /* === Основные цвета === */
+  --color-dark:           #0A0E1A;   /* тёмный фон, текст кнопок */
+  --color-dark-secondary: #2A3550;   /* вторичный тёмный, карточки */
+  --color-light:          #F0F4F8;   /* светлый фон, основной текст */
+  --color-white:          #FFFFFF;
 
-$bp-mobile: 480px;
-$bp-tablet: 768px;
-$bp-desktop: 1280px;
+  /* === Акцентный градиент === */
+  --color-cyan:           #00BFFF;   /* голубой (начало градиента) */
+  --color-teal:           #20B2AA;   /* бирюза (конец градиента) */
+  --color-teal-hover:     #178f88;   /* hover бирюзы */
+  --gradient-brand: linear-gradient(to right, #00BFFF, #20B2AA);
+  --gradient-brand-hover: linear-gradient(to right, #0099CC, #178f88);
+
+  /* === Секции === */
+  --color-section-dark:   #0A0E1A;
+  --color-section-light:  #F0F4F8;
+
+  /* === Модальные окна === */
+  --modal-overlay-bg:     rgba(0, 0, 0, 0.85);
+  --modal-bg:             linear-gradient(135deg, #1a2332 0%, #0f1025 100%);
+  --modal-border-radius:  0;
+  --close-btn-size:       32px;
+
+  /* === Шрифты === */
+  --font-body:    'Rajdhani', sans-serif;
+  --font-accent:  'Orbitron', sans-serif;
+  --font-text:    'Exo 2', sans-serif;
+}

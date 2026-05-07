@@ -1,19 +1,8 @@
-/* === CSS Variables === */
-:root {
-  --modal-overlay-bg: rgba(0, 0, 0, 0.85);
-  --modal-bg-gradient: linear-gradient(135deg, #1a2332 0%, #0f1025 100%);
-  --btn-orange: var(--color-brand-orange);
-  --btn-orange-hover: #ff6633;
-  --modal-border-radius: 22px;
-  --close-btn-size: 32px;
-}
-
-/* === Base Modal Overlay === */
 .modal-overlay,
 .legal-modal,
 .cookie-modal-overlay,
 .modal-input {
-  display: none; /* ← По умолчанию скрыто */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,19 +12,20 @@
   z-index: 10000;
   justify-content: center;
   align-items: center;
-  
-  /* ← Показываем только когда НЕТ is-hidden */
-  &:not(.is-hidden) {
-    display: flex;
-  }
 }
 
-/* === Base Modal Content === */
+.modal-overlay:not(.is-hidden),
+.legal-modal:not(.is-hidden),
+.cookie-modal-overlay:not(.is-hidden),
+.modal-input:not(.is-hidden) {
+  display: flex;
+}
+
 .modal-content,
 .legal-modal-content,
 .cookie-modal-content,
 .modal-input__content {
-  background: var(--modal-bg-gradient);
+  background: var(--modal-bg);
   border-radius: var(--modal-border-radius);
   padding: 40px 30px;
   max-width: 800px;
@@ -44,17 +34,16 @@
   overflow: hidden;
   position: relative;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  color: var(--color-primary-light);
+  color: var(--color-light);
   display: flex;
   flex-direction: column;
 }
 
-/* === Titles === */
 .modal-title,
 .modal-input__title,
 .legal-modal-content h2,
 .cookie-modal-content h2 {
-  color: var(--color-primary-light);
+  color: var(--color-light);
   margin-bottom: 20px;
   font-size: 28px;
   font-weight: 700;
@@ -62,7 +51,6 @@
   flex-shrink: 0;
 }
 
-/* === Close Button === */
 .modal-close-btn,
 .close-legal,
 .close-btn,
@@ -71,13 +59,13 @@
   top: 15px;
   right: 15px;
   background: transparent;
-  border: 1px solid var(--btn-orange);
-  border-radius: 50%;
+  border: 1px solid var(--color-teal);
+  border-radius: 0;
   width: var(--close-btn-size);
   height: var(--close-btn-size);
   font-size: 24px;
   font-weight: 300;
-  color: var(--btn-orange);
+  color: var(--color-teal);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -87,15 +75,17 @@
   z-index: 10;
   padding: 0;
   margin: 0;
-  
-  &:hover {
-    background-color: var(--btn-orange);
-    color: var(--color-primary-light);
-    transform: rotate(90deg);
-  }
 }
 
-/* === Scrollable Content === */
+.modal-close-btn:hover,
+.close-legal:hover,
+.close-btn:hover,
+.modal-input__btn-close:hover {
+  background: var(--gradient-brand);
+  color: var(--color-light);
+  transform: rotate(90deg);
+}
+
 .modal-scrollable,
 .legal-text,
 .cookie-scrollable-content,
@@ -105,81 +95,38 @@
   margin-right: -10px;
   flex: 1;
   margin-bottom: 20px;
-  
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    margin: 10px 0;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: var(--btn-orange);
-    border-radius: 10px;
-    
-    &:hover {
-      background: var(--btn-orange-hover);
-    }
-  }
 }
 
-/* === Text Content === */
-.modal-input__text {
-  margin-bottom: 30px;
-  text-align: center;
-  color: var(--color-primary-light);
-  opacity: 0.85;
-  font-size: 14px;
-  line-height: 1.6;
+.modal-scrollable::-webkit-scrollbar,
+.legal-text::-webkit-scrollbar,
+.cookie-scrollable-content::-webkit-scrollbar,
+.modal-input__scrollable-content::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* === Buttons === */
-.modal-input__button,
-.modal-btn,
-.btn-option {
-  padding: 12px 24px;
-  border-radius: var(--modal-border-radius);
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: transparent;
-  border: 1px solid var(--btn-orange);
-  color: var(--color-primary-light);
-  display: block;
-  margin: 0 auto;
-  min-width: 200px;
-  
-  &:hover {
-    background-color: var(--btn-orange);
-    border-color: var(--btn-orange);
-    color: var(--color-primary-light);
-  }
+.modal-scrollable::-webkit-scrollbar-track,
+.legal-text::-webkit-scrollbar-track,
+.cookie-scrollable-content::-webkit-scrollbar-track,
+.modal-input__scrollable-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
-/* === Mobile === */
-@media (max-width: 768px) {
-  .modal-content,
-  .legal-modal-content,
-  .cookie-modal-content,
-  .modal-input__content {
-    padding: 30px 20px;
-    width: 95%;
-    max-height: 90vh;
-  }
-  
-  .modal-title,
-  .modal-input__title,
-  .legal-modal-content h2,
-  .cookie-modal-content h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
-  }
-  
-  .modal-input__text {
-    font-size: 13px;
-  }
+.modal-scrollable::-webkit-scrollbar-thumb,
+.legal-text::-webkit-scrollbar-thumb,
+.cookie-scrollable-content::-webkit-scrollbar-thumb,
+.modal-input__scrollable-content::-webkit-scrollbar-thumb {
+  background: var(--color-teal);
+  border-radius: 10px;
 }
+
+.modal-scrollable::-webkit-scrollbar-thumb:hover,
+.legal-text::-webkit-scrollbar-thumb:hover,
+.cookie-scrollable-content::-webkit-scrollbar-thumb:hover,
+.modal-input__scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal-hover);
+}
+
+
+

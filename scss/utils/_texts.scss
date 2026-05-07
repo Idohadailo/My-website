@@ -1,9 +1,9 @@
 .text-brand {
-  color: var(--color-brand-orange);
+  color: var(--color-teal);
 }
 
 .text-brand-dark {
-  color: var(--color-brand-dark);
+  color: var(--color-dark);
 }
 
 .text-bold {
@@ -12,4 +12,10 @@
 
 .text-uppercase {
   text-transform: uppercase;
+}
+.hero-gradient-text {
+  background: linear-gradient(to right, #00BFFF, #20B2AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

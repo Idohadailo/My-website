@@ -1,73 +1,57 @@
-/* === Legal Modal Specific Styles === */
-
+/* Legal modal */
 .legal-modal-content {
   max-width: 800px;
 }
 
-.legal-text {
-  h3 {
-    color: var(--btn-orange);
-    margin-top: 25px;
-    margin-bottom: 12px;
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  h4 {
-    color: var(--color-primary-light);
-    margin-top: 18px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    opacity: 0.9;
-  }
-  
-  p,
-  ul {
-    color: var(--color-primary-light);
-    line-height: 1.6;
-    margin-bottom: 15px;
-    opacity: 0.85;
-    font-size: 14px;
-  }
-  
-  ul {
-    padding-left: 25px;
-    
-    li {
-      margin-bottom: 8px;
-    }
-  }
-  
-  a {
-    color: var(--btn-orange);
-    text-decoration: none;
-    transition: all 0.2s ease;
-    
-    &:hover {
-      color: var(--btn-orange-hover);
-      text-decoration: underline;
-    }
-  }
+.legal-text h3 {
+  color: var(--color-teal);
+  margin-top: 25px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-/* Mobile adjustments */
+.legal-text h4 {
+  color: var(--color-light);
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.legal-text p,
+.legal-text ul {
+  font-family: var(--font-text);
+  color: var(--color-light);
+  line-height: 1.7;
+  margin-bottom: 15px;
+  opacity: 0.85;
+  font-size: 15px;
+}
+
+.legal-text ul {
+  padding-left: 25px;
+}
+
+.legal-text ul li {
+  margin-bottom: 8px;
+}
+
+.legal-text a {
+  color: var(--color-teal);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.legal-text a:hover {
+  color: var(--color-teal-hover);
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
-  .legal-text {
-    h3 {
-      font-size: 18px;
-      margin-top: 20px;
-    }
-    
-    h4 {
-      font-size: 15px;
-    }
-    
-    p,
-    ul {
-      font-size: 13px;
-    }
-    
-    padding-right: 10px;
-  }
+  .legal-text h3 { font-size: 18px; margin-top: 20px; }
+  .legal-text h4 { font-size: 15px; }
+  .legal-text p, .legal-text ul { font-size: 13px; }
+  .legal-text { padding-right: 10px; }
 }

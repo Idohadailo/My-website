@@ -2,64 +2,62 @@
   position: relative;
   display: inline-block;
   margin-right: 16px;
+}
 
-  .header__lang-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    position: relative;
-    top: 3px;
-    display: flex;
+.header__lang-switcher .header__lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  top: 3px;
+  display: flex;
   align-items: center;
   justify-content: center;
+}
 
-    .header__icon-globe {
-      width: 32px;
-      height: 32px;
-      color: var(--color-primary-light);
-      transition: color 0.3s ease; // Плавный переход цвета
-    }
-     &:hover {
-      .header__icon-globe {
-        color: var(--color-brand-orange); // Ваш цвет при наведении
-      }
-  }
-  }
-  .header__lang-list {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    // 2. Добавляем небольшой отступ сверху, чтобы окно не "липло" к иконке
-    margin-top: 8px;
-    background: var(--color-primary-light);
-    border: 1px solid #ccc;
-    list-style: none;
-    padding: 8px 0;
-    margin: 0;
-    min-width: 60px;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    border-radius: 4px; // Добавим легкое скругление углов, выглядит современнее
-    // Когда у списка появляется класс .is-open, он становится видимым
-      &.is-open {
-    display: block;
-  }
+.header__lang-switcher .header__lang-btn .header__icon-globe {
+  width: 32px;
+  height: 32px;
+  color: var(--color-light);
+  transition: color 0.3s ease;
+}
 
-    li a {
-      display: block;
-      padding: 4px 12px;
-      color: var(--color-brand-darkgrau);
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s;
-      text-align: center;
+.header__lang-switcher .header__lang-btn:hover .header__icon-globe {
+  color: var(--color-teal);
+}
 
-      &:hover {
-        background-color: rgba(255, 102, 51, 0.8);
-        color: var(--color-primary-light);
-      }
-    }
-  }
+.header__lang-switcher .header__lang-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-light);
+  border: 1px solid #ccc;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 60px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.header__lang-switcher .header__lang-list.is-open {
+  display: block;
+}
+
+.header__lang-switcher .header__lang-list li a {
+  display: block;
+  padding: 4px 12px;
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.header__lang-switcher .header__lang-list li a:hover {
+  background-color: rgba(0, 212, 255, 0.8);
+  color: var(--color-light);
 }
