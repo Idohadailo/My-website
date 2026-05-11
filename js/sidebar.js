@@ -1,50 +1,45 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Находим все необходимые элементы
     const menuContainer = document.getElementById('quick-menu-container');
     const toggleBtn = document.getElementById('toggle-btn');
-    const contactPanel = document.getElementById('contact-panel');
-    const openContactBtn = document.getElementById('open-contact-btn');
-    const closeContactBtn = document.querySelector('#contact-panel .close-btn');
-    const socialPanel = document.getElementById('social-panel');
-    const openSocialBtn = document.getElementById('open-social-btn');
-    const closeSocialBtn = document.querySelector('#social-panel .close-btn');
+    const contactSocialPanel = document.getElementById('contact-social-panel');
+    const openContactSocialBtn = document.getElementById('open-contact-social-btn');
+    const closeContactSocialBtn = document.getElementById('close-contact-social-btn');
 
-    // Логика для Quick Menu
+    // Toggle sidebar
     if (menuContainer && toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             if (menuContainer.classList.contains('is-open')) {
-                if(contactPanel) contactPanel.classList.remove('is-visible');
-                if(socialPanel) socialPanel.classList.remove('is-visible');
+                if (contactSocialPanel) contactSocialPanel.classList.remove('is-visible');
             }
             menuContainer.classList.toggle('is-open');
         });
     }
 
-    // Логика для открытия панели контактов
-    if (contactPanel && openContactBtn) {
-        openContactBtn.addEventListener('click', (e) => {
+    // Open combined contact+social panel
+    if (contactSocialPanel && openContactSocialBtn) {
+        openContactSocialBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if(socialPanel) socialPanel.classList.remove('is-visible');
-            contactPanel.classList.add('is-visible');
-            menuContainer.classList.add('is-open');
+            contactSocialPanel.classList.add('is-visible');
+            if (menuContainer) menuContainer.classList.add('is-open');
         });
     }
 
-    // Логика для открытия панели соцсетей
-    if (socialPanel && openSocialBtn) {
-        openSocialBtn.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            if(contactPanel) contactPanel.classList.remove('is-visible');
-            socialPanel.classList.add('is-visible');
-            menuContainer.classList.add('is-open');
+    // Close combined panel via × button (with rotation animation)
+    if (contactSocialPanel && closeContactSocialBtn) {
+        closeContactSocialBtn.addEventListener('click', () => {
+            closeContactSocialBtn.classList.add('is-rotating');
+            setTimeout(() => {
+                contactSocialPanel.classList.remove('is-visible');
+                closeContactSocialBtn.classList.remove('is-rotating');
+            }, 280);
         });
     }
 
-    // Логика для закрытия панелей (крестики)
-    if (contactPanel && closeContactBtn) {
-        closeContactBtn.addEventListener('click', () => contactPanel.classList.remove('is-visible'));
-    }
-    if (socialPanel && closeSocialBtn) {
-        closeSocialBtn.addEventListener('click', () => socialPanel.classList.remove('is-visible'));
-    }
+    // Nav links: close sidebar on click
+    document.querySelectorAll('.menu-nav-link[href^="#"]:not([id])').forEach(link => {
+        link.addEventListener('click', () => {
+            if (menuContainer) menuContainer.classList.remove('is-open');
+            if (contactSocialPanel) contactSocialPanel.classList.remove('is-visible');
+        });
+    });
 });
