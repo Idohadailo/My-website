@@ -42,15 +42,17 @@
       ]
     }
     </script>
+    <!-- Theme: apply saved preference before CSS to prevent flash -->
+    <script>(function(){var t=localStorage.getItem('idnex-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/main.css?v=20260511n" />
+    <link rel="stylesheet" href="./css/main.css?v=20260512w" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
           />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">      
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap" rel="stylesheet">      
   </head>
   <body>
     <header class="header">
@@ -58,7 +60,7 @@
         <div class="header__container">
           <nav class="header__nav">
             <a class="header__logo" href="#hero-section">
-              <img src="./images/logo.png" alt="idnex" />
+              <img src="./images/logo_brand.png" alt="idnex" />
             </a>
             <ul class="header__menu">
               <li>
@@ -69,20 +71,26 @@
               <li><a class="link" href="#contact-section">Kontakt</a></li>
             </ul>
           </nav>
-       <!-- Языковой переключатель -->
-<div class="header__lang-switcher">
-  <button class="header__lang-btn" type="button">
-    <svg class="header__icon-globe" width="24" height="24">
-      <use href="./images/icons.svg#icon-languages"></use>
-    </svg>
-  </button>
-  <ul class="header__lang-list">
-    <li><a href="/de/">DE</a></li>
-    <li><a href="/en/">EN</a></li>
-    <li><a href="/uk/">UA</a></li>
-    <li><a href="/ru/">RU</a></li>
-  </ul>
-</div>
+          <div class="header__icons">
+            <!-- Языковой переключатель -->
+            <div class="header__lang-switcher">
+              <button class="header__lang-btn" type="button">
+                <svg class="header__icon-globe" width="24" height="24">
+                  <use href="./images/icons.svg#icon-languages"></use>
+                </svg>
+              </button>
+              <ul class="header__lang-list">
+                <li><a href="/de/">DE</a></li>
+                <li><a href="/en/">EN</a></li>
+                <li><a href="/uk/">UA</a></li>
+                <li><a href="/ru/">RU</a></li>
+              </ul>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema wechseln">
+              <svg class="theme-icon theme-icon--sun" width="18" height="18"><use href="./images/icons.svg#icon-sun"></use></svg>
+              <svg class="theme-icon theme-icon--moon" width="18" height="18" style="display:none"><use href="./images/icons.svg#icon-moon"></use></svg>
+            </button>
+          </div>
           <button class="header__button button modal-btn-open" type="button">
             Kostenlosen Termin Buchen
           </button>
@@ -123,11 +131,12 @@
     </header>
     <main>
 <section class="hero-section" id="hero-section">
-  <img class="hero-section__bg" src="./images/heronew.png" alt="" aria-hidden="true" />
+  <img class="hero-section__bg hero-section__bg--dark" src="./images/heronew.png" alt="" aria-hidden="true" />
+  <img class="hero-section__bg hero-section__bg--light" src="./images/hero_light.png" alt="" aria-hidden="true" />
   <div class="container">
     <p class="hero-section__location">ELMSHORN · HAMBURG METRO REGION</p>
     <h1 class="hero-section__title">
-      <span class="hero-gradient-text">Automatisierung</span>,<br>die wirklich funktioniert
+      <span class="hero-gradient-text">Automatisierung,</span><br>die wirklich funktioniert
     </h1>
     <p class="hero-section__subtitle">
       Ich verbinde Ihre Systeme, optimiere Ihre Prozesse und
@@ -163,7 +172,7 @@
             <div class="traditions-section__content">
               <p class="section-eyebrow">Über uns</p>
               <h2 class="traditions-section__title section__title">
-                Präzise <span class="hero-gradient-text">Automatisierung</span>.<br>Keine Buzzwords.
+                Präzise <span class="hero-gradient-text">Automatisierung.</span><br>Keine Buzzwords.
               </h2>
               <p>
                 Ich arbeite mit kleinen und mittleren Unternehmen in der Metropolregion
@@ -201,14 +210,16 @@
       </section>
       <section class="formats-section section" id="formats-section">
         <div class="container">
-          <p class="section-eyebrow">Leistungen</p>
-          <h2 class="formats-section__title section__title">
-            Lösungen für Ihr Unternehmen
-          </h2>
-          <p class="formats-section__lead">
-            Vom kurzen Klärungsgespräch bis zum schlüsselfertigen ERP-System.
-            Wählen Sie den Einstieg, der zu Ihrem Bedarf passt.
-          </p>
+          <div class="section__intro">
+            <p class="section-eyebrow">Leistungen</p>
+            <h2 class="formats-section__title section__title">
+              <span class="hero-gradient-text">Lösungen</span> für Ihr Unternehmen
+            </h2>
+            <p class="formats-section__lead">
+              Vom kurzen Klärungsgespräch bis zum schlüsselfertigen ERP-System.
+              Wählen Sie den Einstieg, der zu Ihrem Bedarf passt.
+            </p>
+          </div>
           <div class="formats-section__slider">
             <button class="formats-section__button carousel-button prev" type="button">
               <svg width="16" height="16"><use href="./images/icons.svg#icon-arrow"></use></svg>
@@ -301,42 +312,46 @@
       </section>
       <section class="chefs-section section" id="chefs-section">
         <div class="container">
-          <p class="section-eyebrow">So arbeiten wir</p>
-          <h2 class="chefs-section__title section__title">
-            Unser <span class="hero-gradient-text">Team</span>
-          </h2>
+          <div class="section__intro">
+            <p class="section-eyebrow">So arbeiten wir</p>
+            <h2 class="chefs-section__title section__title">
+              Unser <span class="hero-gradient-text">Team</span>
+            </h2>
+          </div>
           <ul class="chefs-section__list">
             <li class="chefs-section__item">
               <article class="chef-card">
-                <div class="chef-card__avatar">ID</div>
-                <div>
+                <div class="chef-photo-hex">
+                  <img src="./images/my_photo_crop.jpg" alt="Iryna Dohadailo" class="chef-card__photo" />
+                </div>
+                <div class="chef-card__name-block">
                   <p class="chef-card__role">IT-Automatisierung &amp; Prozessberatung</p>
                   <h3 class="chef-card__title">Iryna Dohadailo</h3>
-                  <p class="chef-card__text">
-                    Spezialisiert auf ERPNext und Geschäftsprozess-Automatisierung.
-                    Analyse, Architektur und Umsetzung — alles aus einer Hand.
-                  </p>
-                  <p class="chef-card__text">
-                    Elmshorn · Hamburg Metro Region · Deutschland
-                  </p>
                 </div>
+                <p class="chef-card__text">
+                  Spezialisiert auf ERPNext und Geschäftsprozess-Automatisierung.
+                  Analyse, Architektur und Umsetzung — alles aus einer Hand.
+                </p>
+                <p class="chef-card__text">
+                  Elmshorn · Hamburg Metro Region · Deutschland
+                </p>
               </article>
             </li>
             <li class="chefs-section__item">
               <article class="chef-card">
                 <div class="chef-card__avatar chef-card__avatar--net">NW</div>
-                <div>
+                <div class="chef-card__name-block">
                   <p class="chef-card__role">KI · Integrationen · Marketing-Automation</p>
                   <h3 class="chef-card__title">Spezialistennetzwerk</h3>
-                  <p class="chef-card__text">
-                    Für komplexe oder spezialisierte Aufgaben bringen wir
-                    geprüfte Experten ins Projekt: KI-Spezialisten,
-                    Integrations-Entwickler, Online-Marketing-Fachleute.
-                  </p>
-                  <p class="chef-card__text">
-                    Eine Ansprechpartnerin. Ein eingespieltes Team.
-                  </p>
                 </div>
+                <p class="chef-card__text">
+                  Für komplexe oder spezialisierte Aufgaben bringen wir
+                  geprüfte Experten ins Projekt: KI-Spezialisten,
+                  Integrations-Entwickler, Online-Marketing-Fachleute.
+                </p>
+                <p class="chef-card__text">
+                  Eine Ansprechpartnerin. Ein eingespieltes Team.
+                </p>
               </article>
             </li>
           </ul>
@@ -345,12 +360,12 @@
       <section class="contact-section section" id="contact-section">
         <div class="container">
           <p class="section-eyebrow">Kontakt</p>
+          <h2 class="contact-section__title section__title">
+            Lassen Sie uns <span class="hero-gradient-text">sprechen.</span>
+          </h2>
+          <p class="contact-section__lead">Füllen Sie das Formular aus — wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
           <div class="contact-section__container">
             <div class="contact-section__form">
-              <h2 class="contact-section__title section__title">
-                Lassen Sie uns<br><span class="hero-gradient-text">sprechen.</span>
-              </h2>
-              <p class="contact-section__lead">Füllen Sie das Formular aus — wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
               <form action="https://formsubmit.co/info@idnex.de" method="POST" name="contact-form" autocomplete="off">
                 <input type="hidden" name="_subject" value="Neue Anfrage — idnex.de">
                 <input type="hidden" name="_captcha" value="false">
@@ -372,14 +387,29 @@
                 <button class="contact-section__button button" type="submit">
                   Kostenlosen Termin Buchen
                 </button>
-                <p class="form-terms">
-                  Mit dem Absenden stimmen Sie der
-                  <a class="form-terms__link" href="#datenschutz">Datenschutzerklärung</a>&nbsp;zu.
-                </p>
               </form>
             </div>
 
+            <aside class="contact-section__info">
+              <p class="contact-info-label">Direktkontakt</p>
+              <ul class="contact-info-list">
+                <li><a class="contact-info-link" href="tel:+491752538771">+49 175 253 8771</a></li>
+                <li><a class="contact-info-link" href="mailto:info@idnex.de">info@idnex.de</a></li>
+                <li><span class="contact-info-text">Feldstraße 24<br>25335 Elmshorn</span></li>
+              </ul>
+              <p class="contact-info-promise">
+                Ich antworte persönlich — in der Regel innerhalb von 24 Stunden.
+              </p>
+              <a class="contact-info-social" href="https://linkedin.com/in/iryna-dohadailo" target="_blank" rel="noopener">
+                LinkedIn → Iryna Dohadailo
+              </a>
+            </aside>
+
           </div>
+          <p class="form-terms">
+            Mit dem Absenden stimmen Sie der
+            <a class="form-terms__link" href="#datenschutz">Datenschutzerklärung</a>&nbsp;zu.
+          </p>
         </div>
       </section>
     </main>
@@ -389,9 +419,8 @@
           <nav class="footer__nav">
             <div class="footer__logo">
               <a href="#">
-                <img src="./images/logo.png" alt="idnex" />
+                <img src="./images/logo_futer_brand.png" alt="idnex — IT-Automatisierung & Prozessberatung" class="footer__logo-img" />
               </a>
-              <p class="footer__tagline">IT-Automatisierung &amp;<br>Prozessberatung · Elmshorn</p>
             </div>
             <ul class="footer__menu">
               <li><a class="link" href="#traditions-section">Über uns</a></li>
@@ -402,6 +431,7 @@
           </nav>
           <address class="footer__address">
             <div class="footer__contacts">
+              <p class="footer__owner-name">Iryna Dohadailo</p>
               <ul class="footer__address-list">
                 <li>
                   <a class="footer__address-link" href="tel:+491752538771">
@@ -751,12 +781,14 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="./js/languages.js?v=20260511n"></script>
-    <script src="./js/formats-slider.js?v=20260511n"></script>
-    <script src="./js/mobile-menu.js?v=20260511n"></script>
-    <script src="./js/modal.js?v=20260511n"></script>
-    <script src="./js/sidebar.js?v=20260511n"></script>
-    <script src="./js/cookies.js?v=20260511n"></script>
+    <script src="./js/languages.js?v=20260512w"></script>
+    <script src="./js/formats-slider.js?v=20260512w"></script>
+    <script src="./js/mobile-menu.js?v=20260512w"></script>
+    <script src="./js/modal.js?v=20260512w"></script>
+    <script src="./js/sidebar.js?v=20260512w"></script>
+    <script src="./js/cookies.js?v=20260512w"></script>
+    <script src="./js/theme.js?v=20260512w"></script>
+    <script src="./js/smooth-scroll.js?v=20260512w"></script>
     
   </body>
 </html>
