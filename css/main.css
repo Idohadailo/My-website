@@ -4295,3 +4295,511 @@ p.section-eyebrow {
   color: var(--color-dark) !important;
   border-color: transparent !important;
 }
+
+/* =======================================================
+   FIXES v22 — Content Rewrite: New Sections
+   ======================================================= */
+
+/* ---- Service tags (carousel cards) ---- */
+.service-tags {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+/* ---- Textarea input ---- */
+textarea.input__control {
+  resize: vertical;
+  min-height: 88px;
+  padding-top: 12px;
+  line-height: 1.55;
+}
+
+/* ---- Probleme Section ---- */
+.probleme-section { background: #0E1828; }
+.probleme-section__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (min-width: 600px) {
+  .probleme-section__list { grid-template-columns: 1fr 1fr; }
+}
+.probleme-card {
+  background: rgba(26,188,172,0.04);
+  border: 1px solid rgba(26,188,172,0.18);
+  border-left: 3px solid rgba(26,188,172,0.55);
+  padding: 32px;
+}
+.probleme-card__num {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+.probleme-card__title {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.probleme-card__text {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  color: var(--color-light);
+  opacity: 0.72;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---- Prozess Section ---- */
+.prozess-section { background: #0A0E1A; }
+.prozess-section__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (min-width: 600px) {
+  .prozess-section__list { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .prozess-section__list { grid-template-columns: repeat(4, 1fr); }
+}
+.prozess-step {
+  background: rgba(26,188,172,0.04);
+  border: 1px solid rgba(26,188,172,0.18);
+  border-top: 2px solid rgba(26,188,172,0.45);
+  padding: 32px 24px;
+}
+.prozess-step__num {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+}
+.prozess-step__title {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.prozess-step__text {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  color: var(--color-light);
+  opacity: 0.72;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ---- Referenzen Section ---- */
+.referenzen-section { background: #0E1828; }
+.referenzen-section__lead {
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  color: var(--color-light);
+  opacity: 0.72;
+  max-width: 560px;
+  margin: 0 0 48px;
+}
+.referenzen-section__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .referenzen-section__list { grid-template-columns: 1fr 1fr; }
+}
+.referenz-card {
+  background: rgba(26,188,172,0.04);
+  border: 1px solid rgba(26,188,172,0.22);
+  border-top: 2px solid rgba(26,188,172,0.45);
+  padding: 32px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.referenz-card:hover {
+  background: rgba(26,188,172,0.08);
+  border-color: rgba(26,188,172,0.45);
+  border-top-color: var(--color-cyan);
+}
+.referenz-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.referenz-tag {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  background: rgba(26,188,172,0.10);
+  border: 1px solid rgba(26,188,172,0.30);
+  padding: 3px 10px;
+}
+.referenz-card__title {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-light);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.referenz-card__desc {
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  color: var(--color-light);
+  opacity: 0.72;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.referenz-card__result {
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-cyan);
+  border-top: 1px solid rgba(26,188,172,0.2);
+  padding-top: 16px;
+  margin: 0;
+}
+.referenz-card__result::before { content: '→ '; }
+
+/* ---- FAQ Section ---- */
+.faq-section { background: #0E1828; }
+.faq-section__list {
+  max-width: 800px;
+  margin: 48px 0 0;
+  list-style: none;
+  padding: 0;
+}
+.faq-item { border-bottom: 1px solid rgba(26,188,172,0.2); }
+.faq-item:first-child { border-top: 1px solid rgba(26,188,172,0.2); }
+.faq-item__question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 22px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+.faq-item__question:hover { color: var(--color-cyan); }
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: rgba(26,188,172,0.12);
+  border: 1px solid rgba(26,188,172,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1;
+  color: var(--color-cyan);
+  transition: transform 0.3s ease;
+}
+.faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+.faq-item__answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+}
+.faq-item.is-open .faq-item__answer { max-height: 600px; }
+.faq-item__answer-inner {
+  padding: 0 0 24px;
+  font-family: var(--font-text);
+  font-size: 0.9375rem;
+  color: var(--color-light);
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---- Light mode overrides for new sections ---- */
+[data-theme="light"] .probleme-section,
+[data-theme="light"] .referenzen-section,
+[data-theme="light"] .faq-section { background: #E4F1F0; }
+[data-theme="light"] .prozess-section { background: #F0F7F6; }
+
+[data-theme="light"] .probleme-card,
+[data-theme="light"] .prozess-step,
+[data-theme="light"] .referenz-card {
+  background: rgba(10,136,128,0.06);
+  border-color: rgba(10,136,128,0.25);
+}
+[data-theme="light"] .probleme-card { border-left-color: rgba(10,136,128,0.6); }
+[data-theme="light"] .prozess-step { border-top-color: rgba(10,136,128,0.5); }
+[data-theme="light"] .referenz-card { border-top-color: rgba(10,136,128,0.5); }
+[data-theme="light"] .referenz-card:hover {
+  background: rgba(10,136,128,0.12);
+  border-color: rgba(10,136,128,0.45);
+  border-top-color: var(--color-cyan);
+}
+[data-theme="light"] .referenz-tag {
+  background: rgba(10,136,128,0.12);
+  border-color: rgba(10,136,128,0.35);
+}
+[data-theme="light"] .referenz-card__result,
+[data-theme="light"] .faq-item { border-color: rgba(10,136,128,0.25); }
+[data-theme="light"] .faq-item:first-child { border-top-color: rgba(10,136,128,0.25); }
+[data-theme="light"] .faq-item__icon {
+  background: rgba(10,136,128,0.12);
+  border-color: rgba(10,136,128,0.45);
+}
+
+/* =======================================================
+   FIXES v23 — UI polish pass
+   ======================================================= */
+
+/* 1. Header logo — larger */
+.header__logo img {
+  height: 88px !important;
+}
+
+/* 2. Header nav — prevent wrapping, center-align items */
+.header__menu {
+  align-items: center !important;
+}
+.header__menu li {
+  display: flex;
+  align-items: center;
+}
+.header__menu .link {
+  white-space: nowrap;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header__menu {
+    gap: 28px !important;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__menu {
+    gap: 40px !important;
+  }
+}
+
+/* 3. Equal-height cards: make li flex so article fills height */
+.probleme-section__list > li,
+.prozess-section__list > li,
+.referenzen-section__list > li {
+  display: flex;
+}
+.probleme-card,
+.prozess-step,
+.referenz-card {
+  flex: 1;
+}
+
+/* 4. Bigger card text on desktop */
+@media (min-width: 900px) {
+  .probleme-card__text,
+  .prozess-step__text,
+  .referenz-card__desc {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .probleme-card__title,
+  .prozess-step__title {
+    font-size: 0.875rem;
+  }
+  .referenz-card__title {
+    font-size: 1.0625rem;
+  }
+}
+
+/* 5. Service number — Exo 2 for readability */
+.service-num {
+  font-family: var(--font-text) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* 6. Textarea — explicit font (browsers don't always inherit) */
+textarea.input__control {
+  font-family: var(--font-text) !important;
+  font-size: 1rem !important;
+}
+textarea.input__control::placeholder {
+  font-family: var(--font-text) !important;
+  font-size: 1rem !important;
+}
+
+/* 7. Hero ghost button — more letter-spacing */
+.hero-section__button-ghost {
+  letter-spacing: 0.12em !important;
+}
+
+/* 8. Swiper disabled arrow state */
+.carousel-button.swiper-button-disabled {
+  opacity: 0.25 !important;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* =======================================================
+   FIXES v24 — Stats, service cards, team, typography
+   ======================================================= */
+
+/* 1. Stats boxes — bigger, properly sized column */
+@media (min-width: 768px) {
+  .traditions-section__container {
+    align-items: flex-start !important;
+  }
+  .traditions-section__content {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .traditions-section__stats {
+    flex: 0 0 clamp(300px, 42%, 460px) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    gap: 12px !important;
+  }
+}
+.stat-item {
+  padding: 28px 24px !important;
+  min-height: 120px !important;
+  justify-content: center;
+}
+.stat-number {
+  font-size: 22px !important;
+  line-height: 1.1;
+  margin-bottom: 8px !important;
+}
+.stat-label {
+  font-size: 13px !important;
+  opacity: 0.75;
+}
+
+/* 2a. Service num + price — Exo 2, readable sizes */
+.service-num {
+  font-family: var(--font-text) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+}
+.service-price {
+  font-family: var(--font-text) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  color: var(--color-cyan) !important;
+}
+
+/* 2b. Card title — allow German word hyphenation */
+.format-card--service .format-card__title {
+  hyphens: auto !important;
+  overflow-wrap: break-word !important;
+  font-size: 16px !important;
+}
+
+/* 3. Team cards — always equal width on desktop */
+@media (min-width: 768px) {
+  .chefs-section__list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .chefs-section__item {
+    flex-basis: unset !important;
+    width: auto !important;
+  }
+}
+
+/* =======================================================
+   FIXES v25 — Mobile polish
+   ======================================================= */
+
+/* 1. Hero buttons — equal width on mobile */
+@media (max-width: 767px) {
+  .hero-section__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-section__button.button,
+  .hero-section__button-ghost {
+    width: 100% !important;
+    text-align: center;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* 2. Service cards — less padding on mobile, flexible height */
+@media (max-width: 767px) {
+  .format-card--service {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 20px 18px !important;
+  }
+}
+
+/* 3. Chef-card role — explicit teal in both modes */
+.chef-card__role {
+  color: var(--color-cyan) !important;
+}
+[data-theme="light"] .chef-card__role {
+  color: var(--color-cyan) !important;
+}
+
+/* 4. Network card — single column, name-block left-aligned with paragraph text */
+@media (max-width: 767px) {
+  .chefs-section__item:last-child .chef-card {
+    grid-template-columns: 1fr !important;
+  }
+  .chefs-section__item:last-child .chef-card__name-block {
+    grid-column: 1 !important;
+  }
+}
+
+/* 5. Sidebar — hidden on desktop (header covers navigation) */
+@media (min-width: 768px) {
+  #quick-menu-container,
+  #contact-social-panel {
+    display: none !important;
+  }
+}
+
+/* 6. Sidebar — left-aligned text, tighter padding so "KONTAKT & SOCIAL" fits */
+#quick-menu-container .menu-items li a {
+  align-items: flex-start !important;
+  padding: 16px 6px 16px 8px !important;
+  font-size: 10px !important;
+}
