@@ -4797,6 +4797,18 @@ textarea.input__control::placeholder {
   }
 }
 
+/* ======= FIXES v26 — language switcher active state ======= */
+.header__lang-list a {
+  cursor: pointer;
+}
+.header__lang-list a.is-active {
+  color: var(--color-cyan);
+  font-weight: 700;
+}
+[data-theme="light"] .header__lang-list a.is-active {
+  color: var(--color-teal);
+}
+
 /* 6. Sidebar — left-aligned text, tighter padding so "KONTAKT & SOCIAL" fits */
 #quick-menu-container .menu-items li a {
   align-items: flex-start !important;

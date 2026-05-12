@@ -47,7 +47,7 @@
     <!-- Theme: apply saved preference before CSS to prevent flash -->
     <script>(function(){var t=localStorage.getItem('idnex-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/main.css?v=20260512a5" />
+    <link rel="stylesheet" href="./css/main.css?v=20260512a6" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -66,12 +66,12 @@
             </a>
             <ul class="header__menu">
               <li>
-                <a class="link" href="#traditions-section">Über mich</a>
+                <a class="link" href="#traditions-section" data-i18n="nav_about">Über mich</a>
               </li>
-              <li><a class="link" href="#formats-section">Leistungen</a></li>
-              <li><a class="link" href="#referenzen-section">Referenzen</a></li>
-              <li><a class="link" href="#chefs-section">Team</a></li>
-              <li><a class="link" href="#contact-section">Kontakt</a></li>
+              <li><a class="link" href="#formats-section" data-i18n="nav_services">Leistungen</a></li>
+              <li><a class="link" href="#referenzen-section" data-i18n="nav_references">Referenzen</a></li>
+              <li><a class="link" href="#chefs-section" data-i18n="nav_team">Team</a></li>
+              <li><a class="link" href="#contact-section" data-i18n="nav_contact">Kontakt</a></li>
             </ul>
           </nav>
           <div class="header__icons">
@@ -83,10 +83,10 @@
                 </svg>
               </button>
               <ul class="header__lang-list">
-                <li><a href="/de/">DE</a></li>
-                <li><a href="/en/">EN</a></li>
-                <li><a href="/uk/">UA</a></li>
-                <li><a href="/ru/">RU</a></li>
+                <li><a href="#" data-lang="de">DE</a></li>
+                <li><a href="#" data-lang="en">EN</a></li>
+                <li><a href="#" data-lang="ua">UA</a></li>
+                <li><a href="#" data-lang="ru">RU</a></li>
               </ul>
             </div>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Farbschema wechseln">
@@ -94,7 +94,7 @@
               <svg class="theme-icon theme-icon--moon" width="18" height="18" style="display:none"><use href="./images/icons.svg#icon-moon"></use></svg>
             </button>
           </div>
-          <button class="header__button button modal-btn-open" type="button">
+          <button class="header__button button modal-btn-open" type="button" data-i18n="nav_cta">
             Kostenlose Erstberatung
           </button>
           <button class="header__burger menu-btn-open" type="button">
@@ -116,19 +116,19 @@
             </a>
             <ul class="mobile-menu__list">
               <li>
-                <a class="mobile-menu__link" href="#traditions-section">Über mich</a>
+                <a class="mobile-menu__link" href="#traditions-section" data-i18n="nav_about">Über mich</a>
               </li>
               <li>
-                <a class="mobile-menu__link" href="#formats-section">Leistungen</a>
+                <a class="mobile-menu__link" href="#formats-section" data-i18n="nav_services">Leistungen</a>
               </li>
               <li>
-                <a class="mobile-menu__link" href="#referenzen-section">Referenzen</a>
+                <a class="mobile-menu__link" href="#referenzen-section" data-i18n="nav_references">Referenzen</a>
               </li>
               <li>
-                <a class="mobile-menu__link" href="#chefs-section">Team</a>
+                <a class="mobile-menu__link" href="#chefs-section" data-i18n="nav_team">Team</a>
               </li>
               <li>
-                <a class="mobile-menu__link" href="#contact-section">Kontakt</a>
+                <a class="mobile-menu__link" href="#contact-section" data-i18n="nav_contact">Kontakt</a>
               </li>
             </ul>
           </div>
@@ -142,18 +142,18 @@
   <img class="hero-section__bg hero-section__bg--dark" src="./images/heronew.png" alt="" aria-hidden="true" />
   <img class="hero-section__bg hero-section__bg--light" src="./images/hero_light.png" alt="" aria-hidden="true" />
   <div class="container">
-    <p class="hero-section__location">ELMSHORN · HAMBURG · DEUTSCHLAND</p>
-    <h1 class="hero-section__title">
+    <p class="hero-section__location" data-i18n="hero_location">ELMSHORN · HAMBURG · DEUTSCHLAND</p>
+    <h1 class="hero-section__title" data-i18n-html="hero_h1_html">
       Was kostet manuelle Arbeit<br><span class="hero-gradient-text">Ihren Betrieb jeden Tag wirklich?</span>
     </h1>
-    <p class="hero-section__subtitle">
+    <p class="hero-section__subtitle" data-i18n="hero_subtitle">
       Ich automatisiere die Routinearbeit — damit Ihre Mitarbeiter das tun, wofür sie wirklich da sind.
     </p>
     <div class="hero-section__buttons">
-      <button class="hero-section__button button modal-btn-open" type="button">
+      <button class="hero-section__button button modal-btn-open" type="button" data-i18n="hero_btn_cta">
         Kostenlose Erstberatung →
       </button>
-      <a href="#referenzen-section" class="hero-section__button-ghost">
+      <a href="#referenzen-section" class="hero-section__button-ghost" data-i18n="hero_btn_ref">
         Referenzen ansehen
       </a>
     </div>
@@ -163,37 +163,37 @@
 <!-- ==================== PROBLEME ==================== -->
 <section class="probleme-section section" id="probleme-section">
   <div class="container">
-    <p class="section-eyebrow">Kennen Sie das?</p>
-    <h2 class="section__title">
+    <p class="section-eyebrow" data-i18n="probleme_eyebrow">Kennen Sie das?</p>
+    <h2 class="section__title" data-i18n-html="probleme_h2_html">
       Täglich Stunden verloren —<br>für Aufgaben, die <span class="hero-gradient-text">kein Mensch erledigen müsste</span>
     </h2>
     <ul class="probleme-section__list">
       <li>
         <article class="probleme-card">
           <span class="probleme-card__num">01</span>
-          <h3 class="probleme-card__title">Drei Systeme, die nicht miteinander reden</h3>
-          <p class="probleme-card__text">Daten tippen Sie dreimal: in Excel, im CRM, in der Buchhaltung. Fehler sind vorprogrammiert, Zeit geht verloren — jeden Tag.</p>
+          <h3 class="probleme-card__title" data-i18n="prob1_title">Drei Systeme, die nicht miteinander reden</h3>
+          <p class="probleme-card__text" data-i18n="prob1_text">Daten tippen Sie dreimal: in Excel, im CRM, in der Buchhaltung. Fehler sind vorprogrammiert, Zeit geht verloren — jeden Tag.</p>
         </article>
       </li>
       <li>
         <article class="probleme-card">
           <span class="probleme-card__num">02</span>
-          <h3 class="probleme-card__title">SAP ist zu teuer — aber weiter so geht nicht</h3>
-          <p class="probleme-card__text">Ihr Betrieb wächst, aber Ihre Tools wachsen nicht mit. Eine echte Lösung schien bisher zu komplex oder zu teuer.</p>
+          <h3 class="probleme-card__title" data-i18n="prob2_title">SAP ist zu teuer — aber weiter so geht nicht</h3>
+          <p class="probleme-card__text" data-i18n="prob2_text">Ihr Betrieb wächst, aber Ihre Tools wachsen nicht mit. Eine echte Lösung schien bisher zu komplex oder zu teuer.</p>
         </article>
       </li>
       <li>
         <article class="probleme-card">
           <span class="probleme-card__num">03</span>
-          <h3 class="probleme-card__title">Alles in Excel — täglich fehlt der Überblick</h3>
-          <p class="probleme-card__text">Buchungen per Copy-Paste, Rechnungen als separate Dateien, Kundendaten in drei Tabellen gleichzeitig. Am Monatsende verbringen Sie Stunden damit, alles zusammenzusuchen.</p>
+          <h3 class="probleme-card__title" data-i18n="prob3_title">Alles in Excel — täglich fehlt der Überblick</h3>
+          <p class="probleme-card__text" data-i18n="prob3_text">Buchungen per Copy-Paste, Rechnungen als separate Dateien, Kundendaten in drei Tabellen gleichzeitig. Am Monatsende verbringen Sie Stunden damit, alles zusammenzusuchen.</p>
         </article>
       </li>
       <li>
         <article class="probleme-card">
           <span class="probleme-card__num">04</span>
-          <h3 class="probleme-card__title">e-Rechnung 2025 — keine Ahnung, wo anfangen</h3>
-          <p class="probleme-card__text">Die gesetzliche Pflicht kommt, der Zeitdruck wächst. Und niemand erklärt klar, was das für Ihr Unternehmen konkret bedeutet.</p>
+          <h3 class="probleme-card__title" data-i18n="prob4_title">e-Rechnung 2025 — keine Ahnung, wo anfangen</h3>
+          <p class="probleme-card__text" data-i18n="prob4_text">Die gesetzliche Pflicht kommt, der Zeitdruck wächst. Und niemand erklärt klar, was das für Ihr Unternehmen konkret bedeutet.</p>
         </article>
       </li>
     </ul>
@@ -205,21 +205,21 @@
   <div class="container">
     <div class="traditions-section__container">
       <div class="traditions-section__content">
-        <p class="section-eyebrow">Über mich</p>
-        <h2 class="traditions-section__title section__title">
+        <p class="section-eyebrow" data-i18n="about_eyebrow">Über mich</p>
+        <h2 class="traditions-section__title section__title" data-i18n-html="about_h2_html">
           Ich löse Probleme.<br><span class="hero-gradient-text">Keine schönen Präsentationen.</span>
         </h2>
-        <p>
+        <p data-i18n="about_p1">
           Die meisten Digitalisierungsberater kommen aus der IT. Sie denken in Technologien,
           nicht in Geschäftsprozessen. Ich war 20 Jahre auf Ihrer Seite des Tisches.
         </p>
-        <p>
+        <p data-i18n="about_p2">
           Ich habe Prozesse in Telekommunikation, Handel und Gastronomie geleitet —
           bevor ich begann, sie zu automatisieren. Ich weiß, was es kostet, wenn ein
           Mitarbeiter täglich 2 Stunden mit manueller Datenübertragung verbringt.
           Und ich weiß, wie man das in 2 Wochen ändert.
         </p>
-        <p class="traditions-section__text traditions-section__text--limited">
+        <p class="traditions-section__text traditions-section__text--limited" data-i18n-html="about_p3_html">
           Heute kombiniere ich diese Erfahrung mit echter technischer Expertise:
           zertifiziert für Make.com, n8n, Node.js und KI-gestützte Automatisierungen.
           <span class="text-brand text-bold">Ich entwickle Ihnen keine Roadmap, die in der Schublade landet —
@@ -229,19 +229,19 @@
       <div class="traditions-section__stats">
         <div class="stat-item">
           <span class="stat-number">20+</span>
-          <span class="stat-label">Jahre Erfahrung</span>
+          <span class="stat-label" data-i18n="stat1_label">Jahre Erfahrung</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">Make · n8n</span>
-          <span class="stat-label">Zertifiziert</span>
+          <span class="stat-label" data-i18n="stat2_label">Zertifiziert</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">DE · EU</span>
-          <span class="stat-label">Einsatzgebiet</span>
+          <span class="stat-label" data-i18n="stat3_label">Einsatzgebiet</span>
         </div>
         <div class="stat-item">
           <span class="stat-number">1</span>
-          <span class="stat-label">Ansprechpartnerin</span>
+          <span class="stat-label" data-i18n="stat4_label">Ansprechpartnerin</span>
         </div>
       </div>
     </div>
@@ -251,37 +251,37 @@
 <!-- ==================== PROZESS ==================== -->
 <section class="prozess-section section" id="prozess-section">
   <div class="container">
-    <p class="section-eyebrow">So funktioniert es</p>
-    <h2 class="section__title">
+    <p class="section-eyebrow" data-i18n="prozess_eyebrow">So funktioniert es</p>
+    <h2 class="section__title" data-i18n-html="prozess_h2_html">
       Von der ersten Anfrage<br>zur <span class="hero-gradient-text">laufenden Automatisierung</span>
     </h2>
     <ul class="prozess-section__list">
       <li>
         <article class="prozess-step">
           <span class="prozess-step__num">01</span>
-          <h3 class="prozess-step__title">Erstgespräch (kostenlos)</h3>
-          <p class="prozess-step__text">Wir besprechen Ihre Situation: Was kostet täglich Zeit? Wo läuft es schief? 30 Minuten, kein Verkaufsgespräch.</p>
+          <h3 class="prozess-step__title" data-i18n="step1_title">Erstgespräch (kostenlos)</h3>
+          <p class="prozess-step__text" data-i18n="step1_text">Wir besprechen Ihre Situation: Was kostet täglich Zeit? Wo läuft es schief? 30 Minuten, kein Verkaufsgespräch.</p>
         </article>
       </li>
       <li>
         <article class="prozess-step">
           <span class="prozess-step__num">02</span>
-          <h3 class="prozess-step__title">Analyse & Konzept</h3>
-          <p class="prozess-step__text">Ich dokumentiere Ihre Prozesse, identifiziere Engpässe und erarbeite ein Konzept mit realistischen Kosten und Zeitplan.</p>
+          <h3 class="prozess-step__title" data-i18n="step2_title">Analyse & Konzept</h3>
+          <p class="prozess-step__text" data-i18n="step2_text">Ich dokumentiere Ihre Prozesse, identifiziere Engpässe und erarbeite ein Konzept mit realistischen Kosten und Zeitplan.</p>
         </article>
       </li>
       <li>
         <article class="prozess-step">
           <span class="prozess-step__num">03</span>
-          <h3 class="prozess-step__title">Umsetzung</h3>
-          <p class="prozess-step__text">Schritt für Schritt, transparent und testbar. Sie sehen, was gebaut wird — und geben Feedback, bevor es live geht.</p>
+          <h3 class="prozess-step__title" data-i18n="step3_title">Umsetzung</h3>
+          <p class="prozess-step__text" data-i18n="step3_text">Schritt für Schritt, transparent und testbar. Sie sehen, was gebaut wird — und geben Feedback, bevor es live geht.</p>
         </article>
       </li>
       <li>
         <article class="prozess-step">
           <span class="prozess-step__num">04</span>
-          <h3 class="prozess-step__title">Übergabe & Support</h3>
-          <p class="prozess-step__text">Vollständige Dokumentation, Einweisung und — wenn gewünscht — laufende Begleitung als Monatspauschale.</p>
+          <h3 class="prozess-step__title" data-i18n="step4_title">Übergabe & Support</h3>
+          <p class="prozess-step__text" data-i18n="step4_text">Vollständige Dokumentation, Einweisung und — wenn gewünscht — laufende Begleitung als Monatspauschale.</p>
         </article>
       </li>
     </ul>
@@ -292,11 +292,11 @@
 <section class="formats-section section" id="formats-section">
   <div class="container">
     <div class="section__intro">
-      <p class="section-eyebrow">Leistungen</p>
-      <h2 class="formats-section__title section__title">
+      <p class="section-eyebrow" data-i18n="services_eyebrow">Leistungen</p>
+      <h2 class="formats-section__title section__title" data-i18n-html="services_h2_html">
         <span class="hero-gradient-text">Leistungen,</span> die sich rechnen
       </h2>
-      <p class="formats-section__lead">
+      <p class="formats-section__lead" data-i18n="services_lead">
         Von der schnellen Prozess-Automatisierung bis zum kompletten ERP-System —
         ich baue das, was Ihr Betrieb wirklich braucht.
       </p>
@@ -311,11 +311,11 @@
           <li class="swiper-slide">
             <article class="format-card format-card--service">
               <span class="service-num">01</span>
-              <h3 class="format-card__title">Prozessautomatisierung</h3>
-              <div class="service-price">ab 1.200 €</div>
-              <p class="service-tags">Make · n8n · Zapier</p>
+              <h3 class="format-card__title" data-i18n="svc1_title">Prozessautomatisierung</h3>
+              <div class="service-price" data-i18n="svc1_price">ab 1.200 €</div>
+              <p class="service-tags" data-i18n="svc1_tags">Make · n8n · Zapier</p>
               <div class="format-card__text">
-                <p>Verbinden Sie Ihre Tools und automatisieren Sie Routineaufgaben: Rechnungserfassung, Daten-Synchronisation, automatische Reports, Lead-Übertragung. Spart täglich Stunden — ohne Programmierkenntnisse Ihrerseits.</p>
+                <p data-i18n="svc1_text">Verbinden Sie Ihre Tools und automatisieren Sie Routineaufgaben: Rechnungserfassung, Daten-Synchronisation, automatische Reports, Lead-Übertragung. Spart täglich Stunden — ohne Programmierkenntnisse Ihrerseits.</p>
               </div>
             </article>
           </li>
@@ -323,11 +323,11 @@
           <li class="swiper-slide">
             <article class="format-card format-card--service">
               <span class="service-num">02</span>
-              <h3 class="format-card__title">KI & intelligente Agenten</h3>
-              <div class="service-price">ab 2.500 €</div>
-              <p class="service-tags">n8n · VAPI · Vektor-DB</p>
+              <h3 class="format-card__title" data-i18n="svc2_title">KI & intelligente Agenten</h3>
+              <div class="service-price" data-i18n="svc2_price">ab 2.500 €</div>
+              <p class="service-tags" data-i18n="svc2_tags">n8n · VAPI · Vektor-DB</p>
               <div class="format-card__text">
-                <p>KI-Sprachassistenten für Terminbuchung, intelligente Wissenssuche, Social-Media-Automatisierung mit KI. Echte Anwendungsfälle, die in Ihren Alltag passen — keine Spielzeuge.</p>
+                <p data-i18n="svc2_text">KI-Sprachassistenten für Terminbuchung, intelligente Wissenssuche, Social-Media-Automatisierung mit KI. Echte Anwendungsfälle, die in Ihren Alltag passen — keine Spielzeuge.</p>
               </div>
             </article>
           </li>
@@ -335,23 +335,23 @@
           <li class="swiper-slide">
             <article class="format-card format-card--service">
               <span class="service-num">03</span>
-              <h3 class="format-card__title">CRM & Marketing-Automation</h3>
-              <div class="service-price">ab 60 €/Std.</div>
-              <p class="service-tags">HubSpot · ActiveCampaign</p>
+              <h3 class="format-card__title" data-i18n="svc3_title">CRM & Marketing-Automation</h3>
+              <div class="service-price" data-i18n="svc3_price">ab 60 €/Std.</div>
+              <p class="service-tags" data-i18n="svc3_tags">HubSpot · ActiveCampaign</p>
               <div class="format-card__text">
-                <p>E-Mail-Sequenzen, Lead-Nurturing, Funnel-Automatisierung, CRM-Einrichtung und -Optimierung. Ihr Vertrieb arbeitet auch nach Feierabend — jeder Lead zum richtigen Zeitpunkt.</p>
+                <p data-i18n="svc3_text">E-Mail-Sequenzen, Lead-Nurturing, Funnel-Automatisierung, CRM-Einrichtung und -Optimierung. Ihr Vertrieb arbeitet auch nach Feierabend — jeder Lead zum richtigen Zeitpunkt.</p>
               </div>
             </article>
           </li>
 
           <li class="swiper-slide">
             <article class="format-card format-card--service format-card--featured">
-              <span class="service-num">04 · Flagship</span>
-              <h3 class="format-card__title">ERP & Digitalisierung</h3>
-              <div class="service-price">auf Anfrage</div>
-              <p class="service-tags">ERPNext · Open Source</p>
+              <span class="service-num" data-i18n="svc4_num">04 · Flagship</span>
+              <h3 class="format-card__title" data-i18n="svc4_title">ERP & Digitalisierung</h3>
+              <div class="service-price" data-i18n="svc4_price">auf Anfrage</div>
+              <p class="service-tags" data-i18n="svc4_tags">ERPNext · Open Source</p>
               <div class="format-card__text">
-                <p>Vollständiges ERP-System für Buchhaltung, Einkauf, Lager, HR und e-Rechnung — auf Open-Source-Basis, ohne Lizenzkosten. Mit DATEV-Export und GoBD-Konformität. Ihre Daten gehören Ihnen.</p>
+                <p data-i18n="svc4_text">Vollständiges ERP-System für Buchhaltung, Einkauf, Lager, HR und e-Rechnung — auf Open-Source-Basis, ohne Lizenzkosten. Mit DATEV-Export und GoBD-Konformität. Ihre Daten gehören Ihnen.</p>
               </div>
             </article>
           </li>
@@ -374,22 +374,22 @@
 <!-- ==================== REFERENZEN ==================== -->
 <section class="referenzen-section section" id="referenzen-section">
   <div class="container">
-    <p class="section-eyebrow">Referenzen</p>
-    <h2 class="section__title">
+    <p class="section-eyebrow" data-i18n="ref_eyebrow">Referenzen</p>
+    <h2 class="section__title" data-i18n-html="ref_h2_html">
       Echte Projekte.<br><span class="hero-gradient-text">Echte Ergebnisse.</span>
     </h2>
-    <p class="referenzen-section__lead">Ausgewählte Projekte aus der Praxis — anonymisiert, aber real.</p>
+    <p class="referenzen-section__lead" data-i18n="ref_lead">Ausgewählte Projekte aus der Praxis — anonymisiert, aber real.</p>
     <ul class="referenzen-section__list">
       <li>
         <article class="referenz-card">
           <div class="referenz-card__tags">
             <span class="referenz-tag">Make</span>
             <span class="referenz-tag">ActiveCampaign</span>
-            <span class="referenz-tag">Bildung</span>
+            <span class="referenz-tag" data-i18n="ref1_tag3">Bildung</span>
           </div>
-          <h3 class="referenz-card__title">Webinar-Funnel vollständig automatisiert</h3>
-          <p class="referenz-card__desc">Anmeldung, Bestätigungs-E-Mail, Zoom-Einladung, Erinnerungen und Follow-up-Sequenz — vollautomatisch in einer Pipeline. Kein manueller Schritt nach dem Setup.</p>
-          <p class="referenz-card__result">0 manuelle Schritte · Zeitersparnis: 4 Std./Woche</p>
+          <h3 class="referenz-card__title" data-i18n="ref1_title">Webinar-Funnel vollständig automatisiert</h3>
+          <p class="referenz-card__desc" data-i18n="ref1_desc">Anmeldung, Bestätigungs-E-Mail, Zoom-Einladung, Erinnerungen und Follow-up-Sequenz — vollautomatisch in einer Pipeline. Kein manueller Schritt nach dem Setup.</p>
+          <p class="referenz-card__result" data-i18n="ref1_result">0 manuelle Schritte · Zeitersparnis: 4 Std./Woche</p>
         </article>
       </li>
       <li>
@@ -397,11 +397,11 @@
           <div class="referenz-card__tags">
             <span class="referenz-tag">n8n</span>
             <span class="referenz-tag">VAPI</span>
-            <span class="referenz-tag">Dienstleistung</span>
+            <span class="referenz-tag" data-i18n="ref2_tag3">Dienstleistung</span>
           </div>
-          <h3 class="referenz-card__title">KI-Sprachassistent für Terminbuchung</h3>
-          <p class="referenz-card__desc">Ein KI-Agent nimmt Anrufe entgegen, versteht natürliche Sprache und bucht Termine direkt im Kalender — rund um die Uhr, ohne Mitarbeiter.</p>
-          <p class="referenz-card__result">24/7 Erreichbarkeit · Mitarbeiter entlastet</p>
+          <h3 class="referenz-card__title" data-i18n="ref2_title">KI-Sprachassistent für Terminbuchung</h3>
+          <p class="referenz-card__desc" data-i18n="ref2_desc">Ein KI-Agent nimmt Anrufe entgegen, versteht natürliche Sprache und bucht Termine direkt im Kalender — rund um die Uhr, ohne Mitarbeiter.</p>
+          <p class="referenz-card__result" data-i18n="ref2_result">24/7 Erreichbarkeit · Mitarbeiter entlastet</p>
         </article>
       </li>
       <li>
@@ -409,11 +409,11 @@
           <div class="referenz-card__tags">
             <span class="referenz-tag">Zapier</span>
             <span class="referenz-tag">ActiveCampaign</span>
-            <span class="referenz-tag">Agentur</span>
+            <span class="referenz-tag" data-i18n="ref3_tag3">Agentur</span>
           </div>
-          <h3 class="referenz-card__title">CRM-Automatisierung für Werbeagentur</h3>
-          <p class="referenz-card__desc">Leads aus verschiedenen Quellen werden automatisch ins CRM übertragen, segmentiert und mit personalisierten E-Mail-Sequenzen begleitet.</p>
-          <p class="referenz-card__result">Lead-to-Contact: von 2 Tagen auf 5 Minuten</p>
+          <h3 class="referenz-card__title" data-i18n="ref3_title">CRM-Automatisierung für Werbeagentur</h3>
+          <p class="referenz-card__desc" data-i18n="ref3_desc">Leads aus verschiedenen Quellen werden automatisch ins CRM übertragen, segmentiert und mit personalisierten E-Mail-Sequenzen begleitet.</p>
+          <p class="referenz-card__result" data-i18n="ref3_result">Lead-to-Contact: von 2 Tagen auf 5 Minuten</p>
         </article>
       </li>
       <li>
@@ -421,11 +421,11 @@
           <div class="referenz-card__tags">
             <span class="referenz-tag">Airtable</span>
             <span class="referenz-tag">Make</span>
-            <span class="referenz-tag">Finanzen</span>
+            <span class="referenz-tag" data-i18n="ref4_tag3">Finanzen</span>
           </div>
-          <h3 class="referenz-card__title">Automatische Konsolidierung von Banktransaktionen</h3>
-          <p class="referenz-card__desc">Transaktionen aus mehreren Bankkonten werden täglich automatisch zusammengefasst, kategorisiert und in eine strukturierte Übersicht überführt.</p>
-          <p class="referenz-card__result">Täglicher Report · Buchführung automatisiert</p>
+          <h3 class="referenz-card__title" data-i18n="ref4_title">Automatische Konsolidierung von Banktransaktionen</h3>
+          <p class="referenz-card__desc" data-i18n="ref4_desc">Transaktionen aus mehreren Bankkonten werden täglich automatisch zusammengefasst, kategorisiert und in eine strukturierte Übersicht überführt.</p>
+          <p class="referenz-card__result" data-i18n="ref4_result">Täglicher Report · Buchführung automatisiert</p>
         </article>
       </li>
     </ul>
@@ -436,8 +436,8 @@
 <section class="chefs-section section" id="chefs-section">
   <div class="container">
     <div class="section__intro">
-      <p class="section-eyebrow">Team</p>
-      <h2 class="chefs-section__title section__title">
+      <p class="section-eyebrow" data-i18n="team_eyebrow">Team</p>
+      <h2 class="chefs-section__title section__title" data-i18n-html="team_h2_html">
         Wer hinter <span class="hero-gradient-text">idNex</span> steht
       </h2>
     </div>
@@ -448,15 +448,15 @@
             <img src="./images/my_photo_crop.jpg" alt="Iryna Dohadailo — IT-Automatisierung & Prozessberatung" class="chef-card__photo" />
           </div>
           <div class="chef-card__name-block">
-            <p class="chef-card__role">IT-Automatisierung &amp; Prozessberatung</p>
+            <p class="chef-card__role" data-i18n="iryna_role">IT-Automatisierung &amp; Prozessberatung</p>
             <h3 class="chef-card__title">Iryna Dohadailo</h3>
           </div>
-          <p class="chef-card__text">
+          <p class="chef-card__text" data-i18n="iryna_text1">
             20+ Jahre Erfahrung in Management, Marketing und Vertrieb.
             Zertifiziert in Make.com und n8n. Spezialisiert auf Prozessautomatisierung,
             KI-Integration und ERPNext-Einführung für KMU in Deutschland und Europa.
           </p>
-          <p class="chef-card__text">
+          <p class="chef-card__text" data-i18n="iryna_text2">
             Elmshorn · Hamburg Metro Region · Europaweit remote
           </p>
         </article>
@@ -464,14 +464,14 @@
       <li class="chefs-section__item">
         <article class="chef-card">
           <div class="chef-card__name-block">
-            <p class="chef-card__role">KI · Integrationen · Marketing-Automation</p>
-            <h3 class="chef-card__title">Spezialistennetzwerk</h3>
+            <p class="chef-card__role" data-i18n="network_role">KI · Integrationen · Marketing-Automation</p>
+            <h3 class="chef-card__title" data-i18n="network_name">Spezialistennetzwerk</h3>
           </div>
-          <p class="chef-card__text">
+          <p class="chef-card__text" data-i18n="network_text1">
             Für komplexe oder spezialisierte Aufgaben bringe ich geprüfte Experten
             ins Projekt: KI-Entwickler, Integrations-Spezialisten, Marketing-Fachleute.
           </p>
-          <p class="chef-card__text">
+          <p class="chef-card__text" data-i18n="network_text2">
             Eine Ansprechpartnerin. Ein eingespieltes Netzwerk.
           </p>
         </article>
@@ -483,54 +483,54 @@
 <!-- ==================== FAQ ==================== -->
 <section class="faq-section section" id="faq-section">
   <div class="container">
-    <p class="section-eyebrow">FAQ</p>
-    <h2 class="section__title">
+    <p class="section-eyebrow" data-i18n="faq_eyebrow">FAQ</p>
+    <h2 class="section__title" data-i18n-html="faq_h2_html">
       Häufige <span class="hero-gradient-text">Fragen</span>
     </h2>
     <ul class="faq-section__list">
       <li class="faq-item">
         <button class="faq-item__question" type="button" aria-expanded="false">
-          Was kostet eine Erstberatung?
+          <span data-i18n="faq1_q">Was kostet eine Erstberatung?</span>
           <i class="faq-item__icon" aria-hidden="true">+</i>
         </button>
         <div class="faq-item__answer" role="region">
-          <p class="faq-item__answer-inner">Kostenlos. 30 Minuten, kein Verkaufsdruck. Wir schauen gemeinsam, ob und wie ich helfen kann — ohne Verpflichtung Ihrerseits.</p>
+          <p class="faq-item__answer-inner" data-i18n="faq1_a">Kostenlos. 30 Minuten, kein Verkaufsdruck. Wir schauen gemeinsam, ob und wie ich helfen kann — ohne Verpflichtung Ihrerseits.</p>
         </div>
       </li>
       <li class="faq-item">
         <button class="faq-item__question" type="button" aria-expanded="false">
-          Ich bin kein IT-Experte — ist das ein Problem?
+          <span data-i18n="faq2_q">Ich bin kein IT-Experte — ist das ein Problem?</span>
           <i class="faq-item__icon" aria-hidden="true">+</i>
         </button>
         <div class="faq-item__answer" role="region">
-          <p class="faq-item__answer-inner">Nein. Ich erkläre alles verständlich und übernehme die technische Komplexität vollständig. Sie müssen weder programmieren noch IT-Vorkenntnisse mitbringen. Meine Aufgabe ist es, Lösungen so zu bauen, dass Sie sich damit wohlfühlen.</p>
+          <p class="faq-item__answer-inner" data-i18n="faq2_a">Nein. Ich erkläre alles verständlich und übernehme die technische Komplexität vollständig. Sie müssen weder programmieren noch IT-Vorkenntnisse mitbringen. Meine Aufgabe ist es, Lösungen so zu bauen, dass Sie sich damit wohlfühlen.</p>
         </div>
       </li>
       <li class="faq-item">
         <button class="faq-item__question" type="button" aria-expanded="false">
-          Wie lange dauert ein typisches Projekt?
+          <span data-i18n="faq3_q">Wie lange dauert ein typisches Projekt?</span>
           <i class="faq-item__icon" aria-hidden="true">+</i>
         </button>
         <div class="faq-item__answer" role="region">
-          <p class="faq-item__answer-inner">Kleine Automatisierungen: 1–2 Wochen. CRM-Einrichtung: 2–4 Wochen. ERPNext-Einführung: ab 3 Monate. Jedes Projekt startet mit einem klaren Zeitplan — keine Überraschungen.</p>
+          <p class="faq-item__answer-inner" data-i18n="faq3_a">Kleine Automatisierungen: 1–2 Wochen. CRM-Einrichtung: 2–4 Wochen. ERPNext-Einführung: ab 3 Monate. Jedes Projekt startet mit einem klaren Zeitplan — keine Überraschungen.</p>
         </div>
       </li>
       <li class="faq-item">
         <button class="faq-item__question" type="button" aria-expanded="false">
-          Was ist der Vorteil von ERPNext gegenüber SAP?
+          <span data-i18n="faq4_q">Was ist der Vorteil von ERPNext gegenüber SAP?</span>
           <i class="faq-item__icon" aria-hidden="true">+</i>
         </button>
         <div class="faq-item__answer" role="region">
-          <p class="faq-item__answer-inner">ERPNext ist Open Source — keine Lizenzgebühren, keine Herstellerabhängigkeit, Ihre Daten gehören Ihnen. Volle Funktionalität für KMU: Buchhaltung, Einkauf, Lager, HR, e-Rechnung — ohne SAP-Preise und ohne Overengineering.</p>
+          <p class="faq-item__answer-inner" data-i18n="faq4_a">ERPNext ist Open Source — keine Lizenzgebühren, keine Herstellerabhängigkeit, Ihre Daten gehören Ihnen. Volle Funktionalität für KMU: Buchhaltung, Einkauf, Lager, HR, e-Rechnung — ohne SAP-Preise und ohne Overengineering.</p>
         </div>
       </li>
       <li class="faq-item">
         <button class="faq-item__question" type="button" aria-expanded="false">
-          Arbeiten Sie auch remote oder nur in Hamburg?
+          <span data-i18n="faq5_q">Arbeiten Sie auch remote oder nur in Hamburg?</span>
           <i class="faq-item__icon" aria-hidden="true">+</i>
         </button>
         <div class="faq-item__answer" role="region">
-          <p class="faq-item__answer-inner">Ich arbeite bundesweit und europaweit remote — die meisten Projekte werden vollständig online abgewickelt. Für Unternehmen in Hamburg und der Region Elmshorn bin ich auf Wunsch auch persönlich vor Ort.</p>
+          <p class="faq-item__answer-inner" data-i18n="faq5_a">Ich arbeite bundesweit und europaweit remote — die meisten Projekte werden vollständig online abgewickelt. Für Unternehmen in Hamburg und der Region Elmshorn bin ich auf Wunsch auch persönlich vor Ort.</p>
         </div>
       </li>
     </ul>
@@ -540,11 +540,11 @@
 <!-- ==================== KONTAKT ==================== -->
 <section class="contact-section section" id="contact-section">
   <div class="container">
-    <p class="section-eyebrow">Kontakt</p>
-    <h2 class="contact-section__title section__title">
+    <p class="section-eyebrow" data-i18n="contact_eyebrow">Kontakt</p>
+    <h2 class="contact-section__title section__title" data-i18n-html="contact_h2_html">
       Lassen Sie uns <span class="hero-gradient-text">sprechen.</span>
     </h2>
-    <p class="contact-section__lead">Beschreiben Sie kurz Ihr Anliegen — ich melde mich persönlich innerhalb von 24 Stunden.</p>
+    <p class="contact-section__lead" data-i18n="contact_lead">Beschreiben Sie kurz Ihr Anliegen — ich melde mich persönlich innerhalb von 24 Stunden.</p>
     <div class="contact-section__container">
       <div class="contact-section__form">
         <form action="https://formsubmit.co/info@idnex.de" method="POST" name="contact-form" autocomplete="off">
@@ -554,44 +554,44 @@
           <input type="hidden" name="_next" value="https://idnex.de/idnex/#contact-section">
           <input type="text" name="_honey" style="display:none" tabindex="-1">
           <div class="contact-section__form-field input">
-            <label class="input__label visually-hidden" for="user-name">Name</label>
-            <input class="input__control" type="text" name="user-name" id="user-name" placeholder="Name" required/>
+            <label class="input__label visually-hidden" for="user-name" data-i18n="form_name_label">Name</label>
+            <input class="input__control" type="text" name="user-name" id="user-name" placeholder="Name" data-i18n-placeholder="form_name_ph" required/>
           </div>
           <div class="contact-section__form-field input">
-            <label class="input__label visually-hidden" for="user-tel">Telefonnummer</label>
-            <input class="input__control" type="tel" name="user-tel" id="user-tel" placeholder="Telefon"/>
+            <label class="input__label visually-hidden" for="user-tel" data-i18n="form_tel_label">Telefonnummer</label>
+            <input class="input__control" type="tel" name="user-tel" id="user-tel" placeholder="Telefon" data-i18n-placeholder="form_tel_ph"/>
           </div>
           <div class="contact-section__form-field input">
-            <label class="input__label visually-hidden" for="user-email">E-Mail-Adresse</label>
-            <input class="input__control" type="email" name="user-email" id="user-email" placeholder="E-Mail" required/>
+            <label class="input__label visually-hidden" for="user-email" data-i18n="form_email_label">E-Mail-Adresse</label>
+            <input class="input__control" type="email" name="user-email" id="user-email" placeholder="E-Mail" data-i18n-placeholder="form_email_ph" required/>
           </div>
           <div class="contact-section__form-field input">
-            <label class="input__label visually-hidden" for="user-message">Ihre Nachricht</label>
-            <textarea class="input__control" name="user-message" id="user-message" placeholder="Ihr Anliegen (optional)" rows="3"></textarea>
+            <label class="input__label visually-hidden" for="user-message" data-i18n="form_msg_label">Ihre Nachricht</label>
+            <textarea class="input__control" name="user-message" id="user-message" placeholder="Ihr Anliegen (optional)" data-i18n-placeholder="form_msg_ph" rows="3"></textarea>
           </div>
-          <button class="contact-section__button button" type="submit">
+          <button class="contact-section__button button" type="submit" data-i18n="contact_btn">
             Kostenlose Erstberatung →
           </button>
         </form>
       </div>
 
       <aside class="contact-section__info">
-        <p class="contact-info-label">Direktkontakt</p>
+        <p class="contact-info-label" data-i18n="contact_direct">Direktkontakt</p>
         <ul class="contact-info-list">
           <li><a class="contact-info-link" href="tel:+491752538771">+49 175 253 8771</a></li>
           <li><a class="contact-info-link" href="mailto:info@idnex.de">info@idnex.de</a></li>
           <li><span class="contact-info-text">Feldstraße 24<br>25335 Elmshorn</span></li>
         </ul>
-        <p class="contact-info-promise">
+        <p class="contact-info-promise" data-i18n="contact_promise">
           Ich antworte persönlich — in der Regel innerhalb von 24 Stunden.
         </p>
-        <a class="contact-info-social" href="https://linkedin.com/in/iryna-dohadailo" target="_blank" rel="noopener">
+        <a class="contact-info-social" href="https://linkedin.com/in/iryna-dohadailo" target="_blank" rel="noopener" data-i18n="contact_linkedin">
           LinkedIn → Iryna Dohadailo
         </a>
       </aside>
 
     </div>
-    <p class="form-terms">
+    <p class="form-terms" data-i18n-html="form_terms_html">
       Mit dem Absenden stimmen Sie der
       <a class="form-terms__link" href="#datenschutz">Datenschutzerklärung</a>&nbsp;zu.
     </p>
@@ -609,11 +609,11 @@
               </a>
             </div>
             <ul class="footer__menu">
-              <li><a class="link" href="#traditions-section">Über mich</a></li>
-              <li><a class="link" href="#formats-section">Leistungen</a></li>
-              <li><a class="link" href="#referenzen-section">Referenzen</a></li>
-              <li><a class="link" href="#chefs-section">Team</a></li>
-              <li><a class="link" href="#contact-section">Kontakt</a></li>
+              <li><a class="link" href="#traditions-section" data-i18n="nav_about">Über mich</a></li>
+              <li><a class="link" href="#formats-section" data-i18n="nav_services">Leistungen</a></li>
+              <li><a class="link" href="#referenzen-section" data-i18n="nav_references">Referenzen</a></li>
+              <li><a class="link" href="#chefs-section" data-i18n="nav_team">Team</a></li>
+              <li><a class="link" href="#contact-section" data-i18n="nav_contact">Kontakt</a></li>
             </ul>
           </nav>
           <address class="footer__address">
@@ -645,8 +645,8 @@
               </div>
             </div>
             <div class="footer__address-info">
-              <a class="footer__address-link footer__address-link--legal" href="#impressum">Impressum</a>
-              <a class="footer__address-link footer__address-link--legal" href="#datenschutz">Datenschutz</a>
+              <a class="footer__address-link footer__address-link--legal" href="#impressum" data-i18n="footer_impressum">Impressum</a>
+              <a class="footer__address-link footer__address-link--legal" href="#datenschutz" data-i18n="footer_datenschutz">Datenschutz</a>
               <p class="footer__address-copyright">&copy; 2026 idnex.de</p>
             </div>
           </address>
@@ -657,24 +657,24 @@
    <!-- Боковое меню -->
 <div id="quick-menu-container">
     <ul class="menu-items">
-        <li><a href="#traditions-section" class="menu-nav-link"><span>ÜBER MICH</span></a></li>
-        <li><a href="#formats-section" class="menu-nav-link"><span>LEISTUNGEN</span></a></li>
-        <li><a href="#referenzen-section" class="menu-nav-link"><span>REFERENZEN</span></a></li>
-        <li><a href="#chefs-section" class="menu-nav-link"><span>TEAM</span></a></li>
-        <li><a href="#" id="open-contact-social-btn" class="menu-nav-link"><span>KONTAKT &amp; SOCIAL</span></a></li>
+        <li><a href="#traditions-section" class="menu-nav-link"><span data-i18n="sidebar_about">ÜBER MICH</span></a></li>
+        <li><a href="#formats-section" class="menu-nav-link"><span data-i18n="sidebar_services">LEISTUNGEN</span></a></li>
+        <li><a href="#referenzen-section" class="menu-nav-link"><span data-i18n="sidebar_references">REFERENZEN</span></a></li>
+        <li><a href="#chefs-section" class="menu-nav-link"><span data-i18n="sidebar_team">TEAM</span></a></li>
+        <li><a href="#" id="open-contact-social-btn" class="menu-nav-link"><span data-i18n="sidebar_contact">KONTAKT &amp; SOCIAL</span></a></li>
     </ul>
 
     <div id="toggle-btn">
         <div class="dots">...</div>
-        <span class="state-closed">MENÜ</span>
-        <span class="state-open">EINKLAPPEN</span>
+        <span class="state-closed" data-i18n="sidebar_menu">MENÜ</span>
+        <span class="state-open" data-i18n="sidebar_collapse">EINKLAPPEN</span>
     </div>
 </div>
 <!-- Combined Kontakt & Social panel -->
 <div id="contact-social-panel">
     <button class="close-btn" id="close-contact-social-btn">&times;</button>
     <div class="panel-body">
-        <h3>Kontakt</h3>
+        <h3 data-i18n="panel_contact_h">Kontakt</h3>
         <p class="studio-name">Iryna Dohadailo</p>
         <a href="mailto:info@idnex.de" class="contact-info">
           <svg class="contact-icon">
@@ -699,14 +699,14 @@
     <div class="modal-input is-hidden">
       <div class="modal-input__content">
         <button class="modal-input__btn-close">&times;</button>
-        <h2 class="modal-input__title">Kostenlose Erstberatung</h2>
+        <h2 class="modal-input__title" data-i18n="modal_title">Kostenlose Erstberatung</h2>
         <div class="modal-input__scrollable-content">
-        <p class="modal-input__text">
+        <p class="modal-input__text" data-i18n="modal_text">
           Hinterlassen Sie Ihre Kontaktdaten — ich melde mich persönlich bei Ihnen!
         </p>
         <form name="modal-form" autocomplete="off">
           <div class="modal-input__form-field input">
-            <label class="input__label visually-hidden" for="modal-user-name">
+            <label class="input__label visually-hidden" for="modal-user-name" data-i18n="modal_name_label">
               Name
             </label>
             <input
@@ -715,12 +715,13 @@
               name="user-name"
               id="modal-user-name"
               placeholder="Name"
+              data-i18n-placeholder="modal_name_ph"
               required
             />
           </div>
 
           <div class="modal-input__form-field input">
-            <label class="input__label visually-hidden" for="modal-user-tel">
+            <label class="input__label visually-hidden" for="modal-user-tel" data-i18n="modal_tel_label">
               Telefonnummer
             </label>
             <input
@@ -729,11 +730,12 @@
               name="user-tel"
               id="modal-user-tel"
               placeholder="Telefon"
+              data-i18n-placeholder="modal_tel_ph"
             />
           </div>
 
           <div class="modal-input__form-field input">
-            <label class="input__label visually-hidden" for="modal-user-email">
+            <label class="input__label visually-hidden" for="modal-user-email" data-i18n="modal_email_label">
               E-Mail-Adresse
             </label>
             <input
@@ -742,11 +744,12 @@
               name="user-email"
               id="modal-user-email"
               placeholder="E-Mail"
+              data-i18n-placeholder="modal_email_ph"
               required
             />
           </div>
         </div>
-          <button class="modal-input__button button" type="submit">
+          <button class="modal-input__button button" type="submit" data-i18n="modal_btn">
             Kostenlose Erstberatung →
           </button>
         </form>
@@ -760,7 +763,7 @@
             <use href="./images/icons.svg#icon-cookie"></use>
         </svg>
     </div>
-    <span class="widget-text">Cookie-Einstellungen</span>
+    <span class="widget-text" data-i18n="cookie_widget">Cookie-Einstellungen</span>
 </div>
 
 <!-- Модальное окно кукис -->
@@ -768,7 +771,7 @@
     <div class="cookie-modal-content">
         <button id="close-modal" class="close-btn">&times;</button>
 
-        <h2>Wir nutzen Cookies und andere Technologien.</h2>
+        <h2 data-i18n="cookie_modal_title">Wir nutzen Cookies und andere Technologien.</h2>
         <div class="cookie-scrollable-content">
         <div class="cookie-text-scroll">
             <p>Diese Website nutzt Cookies und vergleichbare Funktionen zur Verarbeitung von Endgeräteinformationen und personenbezogenen Daten. Die Verarbeitung dient der Einbindung von Inhalten, externen Diensten und Elementen Dritter, der statistischen Analyse/Messung, der personalisierten Werbung sowie der Einbindung sozialer Medien. Je nach Funktion werden dabei Daten an Dritte weitergegeben und an Dritte in Ländern, in denen kein angemessenes Datenschutzniveau vorliegt und von diesen verarbeitet wird, z. B. die USA. Ihre Einwilligung ist stets freiwillig, für die Nutzung unserer Website nicht erforderlich und kann jederzeit auf unserer Seite abgelehnt oder widerrufen werden.</p>
@@ -776,30 +779,30 @@
 
         <div class="cookie-options">
             <label class="cookie-option disabled">
-                <span>Notwendig</span>
+                <span data-i18n="cookie_necessary">Notwendig</span>
                 <input type="checkbox" checked disabled>
                 <span class="checkmark disabled">✔</span>
             </label>
             <label class="cookie-option">
-                <span>Präferenzen</span>
+                <span data-i18n="cookie_prefs">Präferenzen</span>
                 <input type="checkbox" id="pref-perf">
                 <span class="checkmark">✔</span>
             </label>
             <label class="cookie-option">
-                <span>Statistiken</span>
+                <span data-i18n="cookie_stats">Statistiken</span>
                 <input type="checkbox" id="pref-stat">
                 <span class="checkmark">✔</span>
             </label>
              <label class="cookie-option">
-                <span>Marketing</span>
+                <span data-i18n="cookie_marketing">Marketing</span>
                 <input type="checkbox" id="pref-mark">
                 <span class="checkmark">✔</span>
             </label>
         </div>
 </div>
         <div class="cookie-buttons">
-            <button id="accept-necessary" class="btn-option">Nur notwendige</button>
-            <button id="save-selection" class="btn-option">Auswahl speichern</button>
+            <button id="accept-necessary" class="btn-option" data-i18n="cookie_btn_necessary">Nur notwendige</button>
+            <button id="save-selection" class="btn-option" data-i18n="cookie_btn_save">Auswahl speichern</button>
         </div>
 
         <div class="cookie-legal-links">
@@ -958,14 +961,15 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="./js/languages.js?v=20260512a5"></script>
-    <script src="./js/formats-slider.js?v=20260512a5"></script>
-    <script src="./js/mobile-menu.js?v=20260512a5"></script>
-    <script src="./js/modal.js?v=20260512a5"></script>
-    <script src="./js/sidebar.js?v=20260512a5"></script>
-    <script src="./js/cookies.js?v=20260512a5"></script>
-    <script src="./js/theme.js?v=20260512a5"></script>
-    <script src="./js/smooth-scroll.js?v=20260512a5"></script>
+    <script src="./js/translations.js?v=20260512a6"></script>
+    <script src="./js/languages.js?v=20260512a6"></script>
+    <script src="./js/formats-slider.js?v=20260512a6"></script>
+    <script src="./js/mobile-menu.js?v=20260512a6"></script>
+    <script src="./js/modal.js?v=20260512a6"></script>
+    <script src="./js/sidebar.js?v=20260512a6"></script>
+    <script src="./js/cookies.js?v=20260512a6"></script>
+    <script src="./js/theme.js?v=20260512a6"></script>
+    <script src="./js/smooth-scroll.js?v=20260512a6"></script>
     <script>
     document.querySelectorAll('.faq-item__question').forEach(function(btn) {
       btn.addEventListener('click', function() {
