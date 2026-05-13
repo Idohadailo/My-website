@@ -47,7 +47,7 @@
     <!-- Theme: apply saved preference before CSS to prevent flash -->
     <script>(function(){var t=localStorage.getItem('idnex-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/main.css?v=20260513a3" />
+    <link rel="stylesheet" href="./css/main.css?v=20260513a4" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -783,20 +783,22 @@
                 <input type="checkbox" checked disabled>
                 <span class="checkmark disabled">✔</span>
             </label>
-            <div class="cookie-option-group">
-                <label class="cookie-option">
+            <label class="cookie-option cookie-option--with-desc">
+                <div class="cookie-option__text">
                     <span data-i18n="cookie_prefs">Präferenzen</span>
-                    <input type="checkbox" id="pref-perf">
-                    <span class="checkmark">✔</span>
-                </label>
-                <p class="cookie-prefs-desc" data-i18n="cookie_prefs_desc">Spracheinstellung, Darstellungseinstellungen</p>
-            </div>
+                    <span class="cookie-prefs-desc" data-i18n="cookie_prefs_desc">Spracheinstellung, Darstellungseinstellungen</span>
+                </div>
+                <input type="checkbox" id="pref-perf">
+                <span class="checkmark">✔</span>
+            </label>
         </div>
 </div>
         <div class="cookie-buttons">
             <button id="accept-all" class="btn-option btn-option--primary" data-i18n="cookie_btn_accept_all">Alle akzeptieren</button>
-            <button id="save-selection" class="btn-option" data-i18n="cookie_btn_save">Auswahl speichern</button>
-            <button id="accept-necessary" class="btn-option btn-option--ghost" data-i18n="cookie_btn_necessary">Nur notwendige</button>
+            <div class="cookie-buttons__secondary">
+                <button id="save-selection" class="btn-option" data-i18n="cookie_btn_save">Auswahl speichern</button>
+                <button id="accept-necessary" class="btn-option btn-option--ghost" data-i18n="cookie_btn_necessary">Nur notwendige</button>
+            </div>
         </div>
 
         <div class="cookie-legal-links">
@@ -955,15 +957,15 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="./js/translations.js?v=20260513a3"></script>
-    <script src="./js/languages.js?v=20260513a3"></script>
-    <script src="./js/formats-slider.js?v=20260513a3"></script>
-    <script src="./js/mobile-menu.js?v=20260513a3"></script>
-    <script src="./js/modal.js?v=20260513a3"></script>
-    <script src="./js/sidebar.js?v=20260513a3"></script>
-    <script src="./js/cookies.js?v=20260513a3"></script>
-    <script src="./js/theme.js?v=20260513a3"></script>
-    <script src="./js/smooth-scroll.js?v=20260513a3"></script>
+    <script src="./js/translations.js?v=20260513a4"></script>
+    <script src="./js/languages.js?v=20260513a4"></script>
+    <script src="./js/formats-slider.js?v=20260513a4"></script>
+    <script src="./js/mobile-menu.js?v=20260513a4"></script>
+    <script src="./js/modal.js?v=20260513a4"></script>
+    <script src="./js/sidebar.js?v=20260513a4"></script>
+    <script src="./js/cookies.js?v=20260513a4"></script>
+    <script src="./js/theme.js?v=20260513a4"></script>
+    <script src="./js/smooth-scroll.js?v=20260513a4"></script>
     <script>
     document.querySelectorAll('.faq-item__question').forEach(function(btn) {
       btn.addEventListener('click', function() {
