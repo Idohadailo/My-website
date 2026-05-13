@@ -47,7 +47,7 @@
     <!-- Theme: apply saved preference before CSS to prevent flash -->
     <script>(function(){var t=localStorage.getItem('idnex-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
     <!-- Styles -->
-    <link rel="stylesheet" href="./css/main.css?v=20260513a6" />
+    <link rel="stylesheet" href="./css/main.css?v=20260513a7" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
@@ -545,12 +545,8 @@
     <p class="contact-section__lead" data-i18n="contact_lead">Beschreiben Sie kurz Ihr Anliegen — ich melde mich persönlich innerhalb von 24 Stunden.</p>
     <div class="contact-section__container">
       <div class="contact-section__form">
-        <form action="https://formsubmit.co/info@idnex.de" method="POST" name="contact-form" autocomplete="off">
-          <input type="hidden" name="_subject" value="Neue Anfrage — idnex.de">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://idnex.de/idnex/#contact-section">
-          <input type="text" name="_honey" style="display:none" tabindex="-1">
+        <form name="contact-form" autocomplete="off" novalidate>
+          <div id="form-status" class="form-status" aria-live="polite"></div>
           <div class="contact-section__form-field input">
             <label class="input__label visually-hidden" for="user-name" data-i18n="form_name_label">Name</label>
             <input class="input__control" type="text" name="user-name" id="user-name" placeholder="Name" data-i18n-placeholder="form_name_ph" required/>
@@ -909,10 +905,7 @@
 
             <h4>Kontaktformular</h4>
             <p>
-                Wenn Sie uns über das Kontaktformular auf dieser Website kontaktieren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Telefonnummer, Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet.
-            </p>
-            <p>
-                Zur technischen Übermittlung der Formulardaten nutzen wir den Dienst <strong>FormSubmit</strong> (formsubmit.co). Ihre Daten werden ausschließlich zur Weiterleitung an unsere E-Mail-Adresse verwendet und nicht dauerhaft bei FormSubmit gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).
+                Wenn Sie uns über das Kontaktformular auf dieser Website kontaktieren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Telefonnummer, Nachricht) direkt in unserem ERPNext-System (erp.idnex.de, gehostet bei Hetzner Online GmbH) als Lead gespeichert. Eine Weitergabe an Dritte findet nicht statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).
             </p>
 
             <h4>Browser-Speicherung (localStorage)</h4>
@@ -955,15 +948,16 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="./js/translations.js?v=20260513a6"></script>
-    <script src="./js/languages.js?v=20260513a6"></script>
-    <script src="./js/formats-slider.js?v=20260513a6"></script>
-    <script src="./js/mobile-menu.js?v=20260513a6"></script>
-    <script src="./js/modal.js?v=20260513a6"></script>
-    <script src="./js/sidebar.js?v=20260513a6"></script>
-    <script src="./js/cookies.js?v=20260513a6"></script>
-    <script src="./js/theme.js?v=20260513a6"></script>
-    <script src="./js/smooth-scroll.js?v=20260513a6"></script>
+    <script src="./js/translations.js?v=20260513a7"></script>
+    <script src="./js/languages.js?v=20260513a7"></script>
+    <script src="./js/formats-slider.js?v=20260513a7"></script>
+    <script src="./js/mobile-menu.js?v=20260513a7"></script>
+    <script src="./js/modal.js?v=20260513a7"></script>
+    <script src="./js/sidebar.js?v=20260513a7"></script>
+    <script src="./js/cookies.js?v=20260513a7"></script>
+    <script src="./js/theme.js?v=20260513a7"></script>
+    <script src="./js/smooth-scroll.js?v=20260513a7"></script>
+    <script src="./js/contact-form.js?v=20260513a7"></script>
     <script>
     document.querySelectorAll('.faq-item__question').forEach(function(btn) {
       btn.addEventListener('click', function() {

@@ -4816,6 +4816,23 @@ textarea.input__control::placeholder {
   font-size: 10px !important;
 }
 
+/* ======= FIXES v28 — contact form status message ======= */
+.form-status {
+  min-height: 0;
+  font-size: 14px;
+  font-family: var(--font-body);
+  padding: 0;
+  transition: all 0.3s ease;
+}
+.form-status--ok {
+  color: var(--color-cyan);
+  padding: 10px 0 4px;
+}
+.form-status--err {
+  color: #ff6b6b;
+  padding: 10px 0 4px;
+}
+
 /* ======= FIXES v27 — cookie modal: simplified options + buttons ======= */
 /* Preferences option: description inside the box */
 .cookie-option--with-desc {
