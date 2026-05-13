@@ -4815,3 +4815,40 @@ textarea.input__control::placeholder {
   padding: 16px 6px 16px 8px !important;
   font-size: 10px !important;
 }
+
+/* ======= FIXES v27 — cookie modal: simplified options + buttons ======= */
+.cookie-option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.cookie-prefs-desc {
+  font-size: 12px;
+  color: rgba(240, 244, 248, 0.5);
+  padding: 6px 20px 2px;
+  margin: 0;
+  line-height: 1.4;
+}
+[data-theme="light"] .cookie-prefs-desc {
+  color: rgba(10, 14, 26, 0.5);
+}
+.btn-option--primary {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-teal));
+  color: var(--color-dark) !important;
+  border-color: transparent !important;
+  font-weight: 700;
+}
+.btn-option--primary:hover {
+  background: linear-gradient(135deg, var(--color-teal), var(--color-cyan));
+  color: var(--color-dark) !important;
+  border-color: transparent !important;
+}
+.btn-option--ghost {
+  opacity: 0.65;
+}
+.btn-option--ghost:hover {
+  opacity: 1;
+}
+[data-theme="light"] .btn-option--primary {
+  color: #fff !important;
+}

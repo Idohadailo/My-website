@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Cookie accept buttons also close the modal
-    ['accept-necessary', 'save-selection'].forEach(id => {
+    ['accept-all', 'accept-necessary', 'save-selection'].forEach(id => {
         const btn = document.getElementById(id);
         if (btn && cookieModal) {
             btn.addEventListener('click', () => closeModal(cookieModal));

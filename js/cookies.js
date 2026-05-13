@@ -16,22 +16,35 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    function saveConsent(preferences) {
+        localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+    }
+
+    // "Alle akzeptieren" — accept all
+    const acceptAllBtn = document.getElementById('accept-all');
+    if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', () => {
+            const prefCheckbox = document.getElementById('pref-perf');
+            if (prefCheckbox) {
+                prefCheckbox.checked = true;
+                const mark = prefCheckbox.closest('.cookie-option')?.querySelector('.checkmark');
+                if (mark) mark.classList.add('checked');
+            }
+            saveConsent({ necessary: true, preferences: true });
+        });
+    }
+
     // "Nur notwendige" — accept only required cookies
     const acceptNecessaryBtn = document.getElementById('accept-necessary');
     if (acceptNecessaryBtn) {
         acceptNecessaryBtn.addEventListener('click', () => {
-            document.querySelectorAll('.cookie-option input:not(:disabled)').forEach(input => {
-                input.checked = false;
-            });
-            document.querySelectorAll('.cookie-option:not(.disabled) .checkmark').forEach(mark => {
-                mark.classList.remove('checked');
-            });
-            localStorage.setItem('cookieConsent', JSON.stringify({
-                necessary: true,
-                preferences: false,
-                statistics: false,
-                marketing: false
-            }));
+            const prefCheckbox = document.getElementById('pref-perf');
+            if (prefCheckbox) {
+                prefCheckbox.checked = false;
+                const mark = prefCheckbox.closest('.cookie-option')?.querySelector('.checkmark');
+                if (mark) mark.classList.remove('checked');
+            }
+            saveConsent({ necessary: true, preferences: false });
         });
     }
 
@@ -39,13 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const saveSelectionBtn = document.getElementById('save-selection');
     if (saveSelectionBtn) {
         saveSelectionBtn.addEventListener('click', () => {
-            const preferences = {
+            saveConsent({
                 necessary: true,
-                preferences: document.getElementById('pref-perf')?.checked || false,
-                statistics: document.getElementById('pref-stat')?.checked || false,
-                marketing: document.getElementById('pref-mark')?.checked || false
-            };
-            localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+                preferences: document.getElementById('pref-perf')?.checked || false
+            });
         });
     }
 });
