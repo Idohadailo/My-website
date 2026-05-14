@@ -54,67 +54,85 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('form[name="contact-form"]');
-    if (!form) return;
+  function submitToERP(form, nameId, telId, emailId, messageId, btn, statusEl) {
+    var name    = (form.querySelector(nameId)    || {}).value || '';
+    var phone   = (form.querySelector(telId)     || {}).value || '';
+    var email   = (form.querySelector(emailId)   || {}).value || '';
+    var message = (form.querySelector(messageId) || {}).value || '';
 
-    var btn         = form.querySelector('[type="submit"]');
+    if (!name.trim()) {
+      showStatus(statusEl, msg('required_name'), 'err');
+      form.querySelector(nameId).focus();
+      return;
+    }
+    if (!email.trim() || !isValidEmail(email.trim())) {
+      showStatus(statusEl, msg('required_email'), 'err');
+      form.querySelector(emailId).focus();
+      return;
+    }
+
     var btnOrigText = btn ? btn.textContent.trim() : '';
-    var statusEl    = document.getElementById('form-status');
+    if (btn) { btn.disabled = true; btn.textContent = msg('sending'); }
+    if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    var payload = {
+      lead_name:   name.trim(),
+      email_id:    email.trim(),
+      lead_source: 'Website'
+    };
+    if (phone.trim())   payload.mobile_no = phone.trim();
+    if (message.trim()) payload.notes     = [{ note: message.trim() }];
 
-      var name    = (form.querySelector('#user-name')    || {}).value || '';
-      var phone   = (form.querySelector('#user-tel')     || {}).value || '';
-      var email   = (form.querySelector('#user-email')   || {}).value || '';
-      var message = (form.querySelector('#user-message') || {}).value || '';
-
-      // Validate required fields
-      if (!name.trim()) {
-        showStatus(statusEl, msg('required_name'), 'err');
-        form.querySelector('#user-name').focus();
-        return;
-      }
-      if (!email.trim() || !isValidEmail(email.trim())) {
-        showStatus(statusEl, msg('required_email'), 'err');
-        form.querySelector('#user-email').focus();
-        return;
-      }
-
-      if (btn) { btn.disabled = true; btn.textContent = msg('sending'); }
-      if (statusEl) { statusEl.textContent = ''; statusEl.className = 'form-status'; }
-
-      var payload = {
-        lead_name:   name.trim(),
-        email_id:    email.trim(),
-        lead_source: 'Website'
-      };
-      if (phone.trim())   payload.mobile_no = phone.trim();
-      if (message.trim()) payload.notes     = [{ note: message.trim() }];
-
-      fetch(ERP_URL, {
-        method:  'POST',
-        headers: {
-          'Content-Type':  'application/json',
-          'Authorization': ERP_TOKEN
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.data && data.data.name) {
+    fetch(ERP_URL, {
+      method:  'POST',
+      headers: {
+        'Content-Type':  'application/json',
+        'Authorization': ERP_TOKEN
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (data.data && data.data.name) {
+        form.reset();
+        showStatus(statusEl, msg('success'), 'ok');
+        if (btn) { btn.disabled = false; btn.textContent = btnOrigText; }
+      } else {
+        var exc = data.exception || data.exc || '';
+        if (exc.indexOf('DuplicateEntryError') !== -1) {
           form.reset();
           showStatus(statusEl, msg('success'), 'ok');
           if (btn) { btn.disabled = false; btn.textContent = btnOrigText; }
         } else {
-          throw new Error(data.exception || 'unknown');
+          throw new Error(exc || 'unknown');
         }
-      })
-      .catch(function () {
-        showStatus(statusEl, msg('error'), 'err');
-        if (btn) { btn.disabled = false; btn.textContent = btnOrigText; }
-      });
+      }
+    })
+    .catch(function () {
+      showStatus(statusEl, msg('error'), 'err');
+      if (btn) { btn.disabled = false; btn.textContent = btnOrigText; }
     });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var contactForm = document.querySelector('form[name="contact-form"]');
+    if (contactForm) {
+      var btn      = contactForm.querySelector('[type="submit"]');
+      var statusEl = document.getElementById('form-status');
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitToERP(contactForm, '#user-name', '#user-tel', '#user-email', '#user-message', btn, statusEl);
+      });
+    }
+
+    var modalForm = document.querySelector('form[name="modal-form"]');
+    if (modalForm) {
+      var mBtn      = modalForm.querySelector('[type="submit"]');
+      var mStatusEl = document.getElementById('modal-form-status');
+      modalForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitToERP(modalForm, '#modal-user-name', '#modal-user-tel', '#modal-user-email', '#modal-user-message', mBtn, mStatusEl);
+      });
+    }
   });
 }());

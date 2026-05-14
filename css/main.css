@@ -4885,3 +4885,205 @@ textarea.input__control::placeholder {
 [data-theme="light"] .btn-option--primary {
   color: #fff !important;
 }
+
+/* === FIXES v29: Modal form button + Mobile menu CTA === */
+.modal-input__button {
+  display: block;
+  width: 100%;
+  background: var(--gradient-brand);
+  border: 1px solid rgba(26,188,172,0.6);
+  color: var(--color-dark) !important;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 40px;
+  clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 12px;
+  flex-shrink: 0;
+}
+.modal-input__button:hover {
+  background: var(--gradient-brand-hover);
+  transform: translateY(-2px);
+}
+.modal-input__form-field {
+  margin-bottom: 16px;
+}
+
+.mobile-menu__cta {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  background: var(--gradient-brand);
+  border: none;
+  color: var(--color-dark) !important;
+  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.mobile-menu__cta:hover {
+  background: var(--gradient-brand-hover);
+  transform: translateY(-2px);
+}
+
+/* === FIXES v29b: Sidebar CTA button === */
+#quick-menu-container .menu-nav-cta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  gap: 8px;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  background: var(--gradient-brand);
+  color: var(--color-dark) !important;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#quick-menu-container .menu-nav-cta:hover {
+  background: var(--gradient-brand-hover);
+  color: var(--color-dark) !important;
+}
+
+/* === FIXES v29c: Modal input title color === */
+.modal-input__title {
+  color: var(--color-cyan);
+}
+
+/* === FIXES v29d: Contact section — booking button === */
+.contact-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  color: var(--color-cyan);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.contact-or::before,
+.contact-or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(26, 188, 172, 0.2);
+}
+.contact-booking-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 40px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-cyan);
+  background: rgba(26, 188, 172, 0.06);
+  border: 1px solid rgba(26, 188, 172, 0.45);
+  clip-path: polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+  transition: all 0.25s ease;
+  margin-bottom: 4px;
+}
+.modal-booking-btn {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+.modal-or {
+  margin: 10px 0;
+}
+.contact-booking-btn:hover {
+  background: rgba(26, 188, 172, 0.14);
+  border-color: var(--color-cyan);
+  transform: translateY(-2px);
+}
+
+/* === Dev banner === */
+.dev-banner {
+  background: linear-gradient(90deg, var(--color-teal), var(--color-cyan));
+  color: var(--color-dark);
+  text-align: center;
+  padding: 8px 16px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+[data-theme="light"] .dev-banner {
+  color: #fff;
+}
+
+/* === Mobile modal fix === */
+@media (max-width: 767px) {
+  .modal-input {
+    align-items: flex-start;
+    padding-top: 8px;
+  }
+  .modal-input__content {
+    max-height: calc(100vh - 16px);
+    width: 100%;
+    padding: 20px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .modal-input__title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .modal-booking-btn {
+    margin-top: 0;
+    padding: 11px 20px;
+  }
+  .modal-or {
+    margin: 8px 0;
+  }
+  .modal-input form[name="modal-form"] {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .modal-input__scrollable-content {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    margin-bottom: 8px;
+    padding-right: 4px;
+  }
+  .modal-input__scrollable-content p.modal-input__text {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  .modal-input__form-field {
+    margin-bottom: 10px;
+  }
+  .modal-input__form-field textarea {
+    min-height: 56px;
+    height: 56px;
+  }
+  .modal-input__button {
+    margin-top: 6px;
+    padding: 12px 20px;
+    flex-shrink: 0;
+  }
+}

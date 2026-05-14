@@ -40,6 +40,10 @@
     document.querySelectorAll('[data-lang]').forEach(function (el) {
       el.classList.toggle('is-active', el.getAttribute('data-lang') === lang);
     });
+
+    document.querySelectorAll('#booking-page-link, #modal-booking-link').forEach(function(el) {
+      el.href = './book.html?lang=' + lang;
+    });
   }
 
   function setLang(lang) {

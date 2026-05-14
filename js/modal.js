@@ -24,11 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // === 1. INPUT FORM MODAL ===
     const inputModal = document.querySelector('.modal-input');
-    const inputModalBtnOpen = document.querySelector('.modal-btn-open');
     const inputModalBtnClose = inputModal?.querySelector('.modal-input__btn-close');
 
-    if (inputModalBtnOpen && inputModal) {
-        inputModalBtnOpen.addEventListener('click', () => openModal(inputModal));
+    if (inputModal) {
+        document.querySelectorAll('.modal-btn-open').forEach(btn => {
+            btn.addEventListener('click', () => openModal(inputModal));
+        });
     }
 
     if (inputModalBtnClose && inputModal) {

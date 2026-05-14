@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termin buchen — idnex.de</title>
+  <meta name="description" content="Kostenlose Erstberatung buchen mit Iryna Dohadailo — IT-Automatisierung, ERPNext, Hamburg/Deutschland.">
+  <meta name="robots" content="noindex">
+  <script>(function(){var t=localStorage.getItem('idnex-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan:   #1ABCAC;
+      --teal:   #0D9E90;
+      --dark:   #0A0E1A;
+      --mid:    #0E1828;
+      --light:  #F0F4F8;
+      --muted:  rgba(240,244,248,0.55);
+      --border: rgba(26,188,172,0.22);
+      --clip:   polygon(4% 0%, 96% 0%, 100% 5%, 100% 95%, 96% 100%, 4% 100%, 0% 95%, 0% 5%);
+    }
+    [data-theme="light"] {
+      --cyan:   #0A8880;
+      --teal:   #087A6E;
+      --dark:   #F0F7F6;
+      --mid:    #E4F2F0;
+      --light:  #0A1A18;
+      --muted:  rgba(10,26,24,0.55);
+      --border: rgba(10,136,128,0.28);
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'Exo 2', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .bk-header {
+      background: var(--mid);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .bk-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .bk-logo img { height: 34px; width: auto; }
+    .bk-logo-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+    }
+
+    /* Controls wrapper */
+    .bk-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Lang switcher — globe + dropdown */
+    .bk-lang-switcher {
+      position: relative;
+    }
+    .bk-lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bk-icon-globe {
+      width: 26px;
+      height: 26px;
+      color: rgba(240,244,248,0.85);
+      transition: color 0.2s;
+    }
+    [data-theme="light"] .bk-icon-globe { color: rgba(10,26,24,0.75); }
+    .bk-lang-btn:hover .bk-icon-globe { color: var(--cyan); }
+
+    .bk-lang-list {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--mid);
+      border: 1px solid var(--border);
+      list-style: none;
+      padding: 4px 0;
+      min-width: 60px;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .bk-lang-list.is-open { display: block; }
+    .bk-lang-list li a {
+      display: block;
+      padding: 7px 12px;
+      color: var(--light);
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-align: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .bk-lang-list li a:hover,
+    .bk-lang-list li a.is-active {
+      background: linear-gradient(135deg, var(--cyan), var(--teal));
+      color: var(--dark);
+    }
+
+    /* Theme toggle */
+    .bk-theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      background: transparent;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      color: var(--cyan);
+      transition: all 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .bk-theme-toggle:hover {
+      background: rgba(26,188,172,0.10);
+      border-color: var(--cyan);
+    }
+    .bk-theme-icon { display: block; pointer-events: none; }
+
+    /* MAIN */
+    .bk-main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 48px 16px 64px;
+    }
+
+    /* CARD */
+    .bk-card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--mid);
+      border: 1px solid var(--border);
+      padding: 40px 40px 48px;
+    }
+    @media (max-width: 600px) {
+      .bk-card { padding: 28px 20px 36px; }
+    }
+
+    .bk-eyebrow {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+    .bk-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(20px, 5vw, 28px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .bk-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* STEP */
+    .bk-step { display: none; }
+    .bk-step.active { display: block; }
+
+    /* DATE PICKER */
+    .date-label {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+    #booking-date {
+      width: 100%;
+      background: rgba(26,188,172,0.05);
+      border: 1px solid var(--border);
+      color: var(--light);
+      font-family: 'Exo 2', sans-serif;
+      font-size: 15px;
+      padding: 13px 16px;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    #booking-date:focus { border-color: var(--cyan); }
+    #booking-date::-webkit-calendar-picker-indicator {
+      filter: invert(0.7) sepia(1) saturate(4) hue-rotate(135deg);
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    #booking-date::-webkit-datetime-edit-fields-wrapper { color: var(--light); }
+    #booking-date::-webkit-datetime-edit-text { color: var(--muted); }
+    #booking-date::-webkit-inner-spin-button { display: none; }
+
+    /* DATE ROW */
+    .date-input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .date-input-row #booking-date {
+      flex: 1;
+    }
+    .load-slots-btn {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+      color: var(--dark);
+      border: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 0 20px;
+      cursor: pointer;
+      clip-path: var(--clip);
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+    .load-slots-btn:hover { opacity: 0.85; }
+    .load-slots-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* SLOTS */
+    .slots-loading {
+      font-size: 14px;
+      color: var(--muted);
+      padding: 16px 0;
+    }
+    .slots-empty {
+      font-size: 14px;
+      color: var(--muted);
+      padding: 16px 0;
+      border-left: 2px solid var(--teal);
+      padding-left: 12px;
+    }
+    .slots-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .slot-btn {
+      background: rgba(13,158,144,0.08);
+      border: 1px solid rgba(26,188,172,0.4);
+      color: var(--cyan);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      padding: 10px 18px;
+      cursor: pointer;
+      clip-path: var(--clip);
+      transition: all 0.18s;
+      min-width: 80px;
+      text-align: center;
+    }
+    .slot-btn:hover, .slot-btn:focus {
+      background: rgba(26,188,172,0.18);
+      border-color: var(--cyan);
+      outline: none;
+    }
+    .slot-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* SELECTED SLOT DISPLAY */
+    .selected-slot-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: space-between;
+      background: rgba(26,188,172,0.08);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      margin-bottom: 28px;
+    }
+    .selected-slot-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      color: var(--cyan);
+    }
+    .change-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .change-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    /* FORM */
+    .bk-field { margin-bottom: 16px; }
+    .bk-field label {
+      display: block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .bk-field input,
+    .bk-field textarea {
+      width: 100%;
+      background: rgba(26,188,172,0.05);
+      border: 1px solid var(--border);
+      color: var(--light);
+      font-family: 'Exo 2', sans-serif;
+      font-size: 15px;
+      padding: 12px 14px;
+      outline: none;
+      resize: none;
+      transition: border-color 0.2s;
+    }
+    .bk-field input:focus,
+    .bk-field textarea:focus { border-color: var(--cyan); }
+    .bk-field input::placeholder,
+    .bk-field textarea::placeholder { color: rgba(240,244,248,0.3); }
+    .bk-field textarea { min-height: 90px; }
+
+    /* SUBMIT BUTTON */
+    .bk-submit {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--teal) 100%);
+      color: var(--dark);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 24px;
+      border: none;
+      cursor: pointer;
+      clip-path: var(--clip);
+      margin-top: 24px;
+      transition: opacity 0.2s;
+    }
+    .bk-submit:hover:not(:disabled) { opacity: 0.88; }
+    .bk-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* TERMS */
+    .bk-terms {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+    .bk-terms a { color: var(--cyan); text-decoration: underline; }
+    .bk-terms a:hover { opacity: 0.8; }
+
+    /* STATUS */
+    .bk-status {
+      margin-top: 12px;
+      font-size: 14px;
+      min-height: 20px;
+    }
+    .bk-status.ok { color: var(--cyan); }
+    .bk-status.err { color: #ff6b6b; }
+
+    /* SUCCESS SCREEN */
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--cyan);
+      clip-path: var(--clip);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .success-icon svg { width: 28px; height: 28px; fill: none; stroke: var(--cyan); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .success-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+    .success-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .success-detail {
+      background: rgba(26,188,172,0.08);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .success-detail strong {
+      color: var(--cyan);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 12px;
+    }
+
+    /* BACK LINK */
+    .bk-back {
+      display: inline-block;
+      color: var(--cyan);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      clip-path: var(--clip);
+      transition: all 0.2s;
+    }
+    .bk-back:hover { border-color: var(--cyan); background: rgba(26,188,172,0.07); }
+
+    /* FOOTER */
+    .bk-footer {
+      padding: 24px 24px 28px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .bk-back--footer {
+      font-size: 11px;
+    }
+    .bk-footer-info {
+      font-size: 12px;
+      color: rgba(240,244,248,0.3);
+    }
+    [data-theme="light"] .bk-footer-info { color: rgba(10,26,24,0.35); }
+
+    /* DATENSCHUTZ MODAL */
+    .ds-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,14,26,0.82);
+      z-index: 9000;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+    .ds-overlay.is-open { display: flex; align-items: flex-start; justify-content: center; }
+    .ds-box {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      max-width: 640px;
+      width: 100%;
+      padding: 32px 28px;
+      position: relative;
+      margin: auto;
+    }
+    .ds-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    .ds-close:hover { color: var(--cyan); }
+    .ds-body { font-size: 13px; line-height: 1.7; color: var(--light); }
+    .ds-body h3 { font-family: 'Orbitron', sans-serif; font-size: 13px; margin: 20px 0 6px; color: var(--cyan); }
+    .ds-body h3:first-child { margin-top: 0; }
+    .ds-body p { margin-bottom: 10px; }
+    .ds-body a { color: var(--cyan); }
+    .ds-body ul { padding-left: 18px; margin-bottom: 10px; }
+    .ds-body li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+<header class="bk-header">
+  <a class="bk-logo" href="https://idnex.de/">
+    <img src="images/logo_brand.png" alt="idnex logo">
+    <span class="bk-logo-text">idnex.de</span>
+  </a>
+  <div class="bk-controls">
+    <div class="bk-lang-switcher">
+      <button class="bk-lang-btn" type="button" id="bk-lang-btn" aria-label="Sprache wählen">
+        <svg class="bk-icon-globe" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </button>
+      <ul class="bk-lang-list" id="bk-lang-list">
+        <li><a href="#" data-lang="de">DE</a></li>
+        <li><a href="#" data-lang="en">EN</a></li>
+        <li><a href="#" data-lang="ua">UA</a></li>
+        <li><a href="#" data-lang="ru">RU</a></li>
+      </ul>
+    </div>
+    <button id="bk-theme-toggle" class="bk-theme-toggle" type="button" aria-label="Farbschema wechseln">
+      <svg class="bk-theme-icon bk-theme-icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="bk-theme-icon bk-theme-icon--moon" width="18" height="18" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main class="bk-main">
+  <div class="bk-card">
+    <p class="bk-eyebrow" id="t-eyebrow">Kostenlose Erstberatung</p>
+    <h1 class="bk-title" id="t-title">Termin buchen</h1>
+    <p class="bk-subtitle" id="t-subtitle">30 Minuten · Montag–Freitag · 9:00–15:00 Uhr</p>
+
+    <!-- STEP 1: DATE + SLOTS -->
+    <div class="bk-step active" id="step-date">
+      <label class="date-label" id="t-date-label" for="booking-date">Datum wählen</label>
+      <div class="date-input-row">
+        <input type="date" id="booking-date">
+        <button type="button" class="load-slots-btn" id="load-slots-btn" onclick="window._bkLoad()">→</button>
+      </div>
+      <div id="slots-area"></div>
+    </div>
+
+    <!-- STEP 2: FORM -->
+    <div class="bk-step" id="step-form">
+      <div class="selected-slot-bar">
+        <span class="selected-slot-text" id="selected-slot-label"></span>
+        <button class="change-btn" id="change-btn">Ändern</button>
+      </div>
+
+      <form id="booking-form" novalidate autocomplete="off">
+        <div class="bk-field">
+          <label id="t-name-label" for="bk-name">Name *</label>
+          <input type="text" id="bk-name" autocomplete="name" placeholder="Max Mustermann">
+        </div>
+        <div class="bk-field">
+          <label id="t-email-label" for="bk-email">E-Mail *</label>
+          <input type="email" id="bk-email" autocomplete="email" placeholder="name@firma.de">
+        </div>
+        <div class="bk-field">
+          <label id="t-phone-label" for="bk-phone">Telefon</label>
+          <input type="tel" id="bk-phone" autocomplete="tel" placeholder="+49 ...">
+        </div>
+        <div class="bk-field">
+          <label id="t-notes-label" for="bk-notes">Thema / Nachricht</label>
+          <textarea id="bk-notes" placeholder="Womit kann ich Ihnen helfen?"></textarea>
+        </div>
+        <button class="bk-submit" type="submit" id="bk-submit-btn">Termin bestätigen →</button>
+        <p class="bk-terms" id="t-bk-terms">Mit der Buchung stimmen Sie unserer <a href="https://idnex.de/" target="_blank">Datenschutzerklärung</a> zu.</p>
+      </form>
+      <div class="bk-status" id="bk-status" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- STEP 3: SUCCESS -->
+    <div class="bk-step" id="step-success">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 class="success-title" id="t-success-title">Termin angefragt!</h2>
+      <p class="success-text" id="t-success-text">Sie erhalten in Kürze eine Bestätigungs-E-Mail. Ich freue mich auf unser Gespräch.</p>
+      <div class="success-detail" id="success-detail"></div>
+      <a class="bk-back" href="https://idnex.de/" id="t-back-btn">← Zurück zur Website</a>
+    </div>
+  </div>
+</main>
+
+<footer class="bk-footer">
+  <a class="bk-back bk-back--footer" href="https://idnex.de/" data-i18n="back_btn">← Zurück zur Website</a>
+  <p class="bk-footer-info">idnex.de &nbsp;·&nbsp; Iryna Dohadailo &nbsp;·&nbsp; info@idnex.de</p>
+</footer>
+
+<!-- Datenschutz modal -->
+<div id="ds-modal" class="ds-overlay" role="dialog" aria-modal="true" aria-labelledby="ds-title">
+  <div class="ds-box">
+    <button class="ds-close" id="ds-close" aria-label="Schließen">&times;</button>
+    <div class="ds-body" id="ds-body"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ERP   = 'https://erp.idnex.de/api/method/erpnext.www.book_appointment.index.';
+  var TOKEN = 'token e48df49ba1f2f34:70db560d7fd1823';
+  var TZ  = 'Europe/Berlin';
+
+  var T = {
+    de: {
+      eyebrow:       'Kostenlose Erstberatung',
+      title:         'Termin buchen',
+      subtitle:      '30 Minuten · Montag–Freitag · 9:00–15:00 Uhr',
+      date_label:    'Datum wählen',
+      loading:       'Lade verfügbare Zeiten…',
+      no_slots:      'Keine Termine an diesem Tag verfügbar. Bitte wählen Sie einen anderen Tag.',
+      change:        'Ändern',
+      name_label:    'Name *',
+      email_label:   'E-Mail *',
+      phone_label:   'Telefon',
+      notes_label:   'Thema / Nachricht',
+      name_ph:       'Max Mustermann',
+      email_ph:      'name@firma.de',
+      phone_ph:      '+49 ...',
+      notes_ph:      'Womit kann ich Ihnen helfen?',
+      submit_btn:    'Termin bestätigen →',
+      sending:       'Wird gesendet…',
+      success_title: 'Termin angefragt!',
+      success_text:  'Sie erhalten in Kürze eine Bestätigungs-E-Mail. Ich freue mich auf unser Gespräch.',
+      back_btn:      '← Zurück zur Website',
+      terms:         'Mit der Buchung stimmen Sie unserer <a href="#" class="ds-open">Datenschutzerklärung</a> zu.',
+      err_name:      'Bitte geben Sie Ihren Namen ein.',
+      err_email:     'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      err_generic:   'Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an info@idnex.de',
+      booked_for:    'Termin am',
+      at:            'um',
+      ds_html:       '<h3>Datenschutzerklärung</h3><h3>Verantwortliche Stelle</h3><p>Iryna Dohadailo · Feldstraße 24, 25335 Elmshorn<br>E-Mail: <a href="mailto:info@idnex.de">info@idnex.de</a> · Tel: <a href="tel:+491752538771">+49 175 253 8771</a></p><h3>Terminbuchung</h3><p>Bei der Buchung werden Ihre Angaben (Name, E-Mail, Telefon, Thema) in unserem ERPNext-System (erp.idnex.de, Hetzner, Deutschland) gespeichert. Keine Weitergabe an Dritte. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p><h3>Ihre Rechte</h3><ul><li>Auskunft (Art. 15 DSGVO)</li><li>Berichtigung (Art. 16 DSGVO)</li><li>Löschung (Art. 17 DSGVO)</li><li>Widerspruch (Art. 21 DSGVO)</li></ul><p>Anfragen: <a href="mailto:info@idnex.de">info@idnex.de</a></p><h3>Vollständige Datenschutzerklärung</h3><p><a href="https://idnex.de/" target="_blank">idnex.de/idnex/</a> → Datenschutz (im Footer)</p>',
+    },
+    en: {
+      eyebrow:       'Free initial consultation',
+      title:         'Book appointment',
+      subtitle:      '30 minutes · Monday–Friday · 9:00–15:00',
+      date_label:    'Select a date',
+      loading:       'Loading available times…',
+      no_slots:      'No appointments available on this day. Please choose another date.',
+      change:        'Change',
+      name_label:    'Name *',
+      email_label:   'E-Mail *',
+      phone_label:   'Phone',
+      notes_label:   'Topic / Message',
+      name_ph:       'John Smith',
+      email_ph:      'name@company.com',
+      phone_ph:      '+49 ...',
+      notes_ph:      'How can I help you?',
+      submit_btn:    'Confirm appointment →',
+      sending:       'Sending…',
+      success_title: 'Appointment requested!',
+      success_text:  'You will receive a confirmation email shortly. Looking forward to our meeting.',
+      back_btn:      '← Back to website',
+      terms:         'By booking you agree to our <a href="#" class="ds-open">Privacy Policy</a>.',
+      err_name:      'Please enter your name.',
+      err_email:     'Please enter a valid email address.',
+      err_generic:   'Something went wrong. Please email us at info@idnex.de',
+      booked_for:    'Appointment on',
+      at:            'at',
+      ds_html:       '<h3>Privacy Policy</h3><h3>Controller</h3><p>Iryna Dohadailo · Feldstraße 24, 25335 Elmshorn<br>E-Mail: <a href="mailto:info@idnex.de">info@idnex.de</a> · Tel: <a href="tel:+491752538771">+49 175 253 8771</a></p><h3>Appointment Booking</h3><p>When booking, your data (name, email, phone, topic) is stored in our ERPNext system (erp.idnex.de, Hetzner, Germany). No data is shared with third parties. Legal basis: Art. 6(1)(b) GDPR.</p><h3>Your Rights</h3><ul><li>Access (Art. 15 GDPR)</li><li>Rectification (Art. 16 GDPR)</li><li>Erasure (Art. 17 GDPR)</li><li>Objection (Art. 21 GDPR)</li></ul><p>Requests: <a href="mailto:info@idnex.de">info@idnex.de</a></p><h3>Full Privacy Policy</h3><p><a href="https://idnex.de/" target="_blank">idnex.de/idnex/</a> → Privacy Policy (in Footer)</p>',
+    },
+    ua: {
+      eyebrow:       'Безкоштовна перша консультація',
+      title:         'Записатись на зустріч',
+      subtitle:      '30 хвилин · Понеділок–П\'ятниця · 9:00–15:00',
+      date_label:    'Виберіть дату',
+      loading:       'Завантаження доступного часу…',
+      no_slots:      'Немає вільних слотів на цей день. Будь ласка, виберіть інший день.',
+      change:        'Змінити',
+      name_label:    'Ім\'я *',
+      email_label:   'E-Mail *',
+      phone_label:   'Телефон',
+      notes_label:   'Тема / Повідомлення',
+      name_ph:       'Іван Іваненко',
+      email_ph:      'name@firma.de',
+      phone_ph:      '+49 ...',
+      notes_ph:      'Чим я можу вам допомогти?',
+      submit_btn:    'Підтвердити зустріч →',
+      sending:       'Надсилання…',
+      success_title: 'Зустріч заброньовано!',
+      success_text:  'Ви незабаром отримаєте лист з підтвердженням. Чекаю на нашу зустріч.',
+      back_btn:      '← Повернутися на сайт',
+      terms:         'Бронюючи зустріч, ви погоджуєтесь з нашою <a href="#" class="ds-open">Політикою конфіденційності</a>.',
+      err_name:      'Будь ласка, введіть ваше ім\'я.',
+      err_email:     'Будь ласка, введіть дійсну адресу електронної пошти.',
+      err_generic:   'Щось пішло не так. Напишіть нам на info@idnex.de',
+      booked_for:    'Зустріч на',
+      at:            'о',
+      ds_html:       '<h3>Політика конфіденційності</h3><h3>Відповідальна особа</h3><p>Iryna Dohadailo · Feldstraße 24, 25335 Elmshorn<br>E-Mail: <a href="mailto:info@idnex.de">info@idnex.de</a> · Tel: <a href="tel:+491752538771">+49 175 253 8771</a></p><h3>Бронювання зустрічі</h3><p>При бронюванні ваші дані (ім\'я, e-mail, телефон, тема) зберігаються в нашій системі ERPNext (erp.idnex.de, Hetzner, Німеччина). Дані не передаються третім особам. Правова підстава: ст. 6(1)(b) GDPR.</p><h3>Ваші права</h3><ul><li>Доступ до даних (ст. 15 GDPR)</li><li>Виправлення (ст. 16 GDPR)</li><li>Видалення (ст. 17 GDPR)</li><li>Заперечення (ст. 21 GDPR)</li></ul><p>Запити: <a href="mailto:info@idnex.de">info@idnex.de</a></p><h3>Повна політика конфіденційності</h3><p><a href="https://idnex.de/" target="_blank">idnex.de/idnex/</a> → Datenschutz (у футері)</p>',
+    },
+    ru: {
+      eyebrow:       'Бесплатная первичная консультация',
+      title:         'Записаться на встречу',
+      subtitle:      '30 минут · Понедельник–Пятница · 9:00–15:00',
+      date_label:    'Выберите дату',
+      loading:       'Загрузка доступного времени…',
+      no_slots:      'Нет свободных слотов на этот день. Пожалуйста, выберите другой день.',
+      change:        'Изменить',
+      name_label:    'Имя *',
+      email_label:   'E-Mail *',
+      phone_label:   'Телефон',
+      notes_label:   'Тема / Сообщение',
+      name_ph:       'Иван Иванов',
+      email_ph:      'name@firma.de',
+      phone_ph:      '+49 ...',
+      notes_ph:      'Чем я могу вам помочь?',
+      submit_btn:    'Подтвердить встречу →',
+      sending:       'Отправка…',
+      success_title: 'Встреча забронирована!',
+      success_text:  'Вы скоро получите письмо с подтверждением. Жду нашей встречи.',
+      back_btn:      '← Вернуться на сайт',
+      terms:         'Бронируя встречу, вы соглашаетесь с нашей <a href="#" class="ds-open">Политикой конфиденциальности</a>.',
+      err_name:      'Пожалуйста, введите ваше имя.',
+      err_email:     'Пожалуйста, введите корректный адрес электронной почты.',
+      err_generic:   'Что-то пошло не так. Напишите нам на info@idnex.de',
+      booked_for:    'Встреча на',
+      at:            'в',
+      ds_html:       '<h3>Политика конфиденциальности</h3><h3>Ответственное лицо</h3><p>Iryna Dohadailo · Feldstraße 24, 25335 Elmshorn<br>E-Mail: <a href="mailto:info@idnex.de">info@idnex.de</a> · Tel: <a href="tel:+491752538771">+49 175 253 8771</a></p><h3>Бронирование встречи</h3><p>При бронировании ваши данные (имя, e-mail, телефон, тема) сохраняются в нашей системе ERPNext (erp.idnex.de, Hetzner, Германия). Данные не передаются третьим лицам. Правовое основание: ст. 6(1)(b) GDPR.</p><h3>Ваши права</h3><ul><li>Доступ к данным (ст. 15 GDPR)</li><li>Исправление (ст. 16 GDPR)</li><li>Удаление (ст. 17 GDPR)</li><li>Возражение (ст. 21 GDPR)</li></ul><p>Запросы: <a href="mailto:info@idnex.de">info@idnex.de</a></p><h3>Полная политика конфиденциальности</h3><p><a href="https://idnex.de/" target="_blank">idnex.de/idnex/</a> → Datenschutz (в подвале)</p>',
+    }
+  };
+
+  var lang = 'de';
+  var selectedDate = '';
+  var selectedTime = '';
+
+  function t(key) {
+    return (T[lang] || T.de)[key] || '';
+  }
+
+  function getLang() {
+    // Only use URL param (set by main site link) — never inherit main site's localStorage lang
+    var p = new URLSearchParams(window.location.search).get('lang');
+    return (p && T[p]) ? p : 'de';
+  }
+
+  function setLang(l) {
+    if (!T[l]) return;
+    lang = l;
+    // Don't write to localStorage — keeps book.html language independent of main site
+    var url = new URL(window.location.href);
+    url.searchParams.set('lang', l);
+    window.history.replaceState({}, '', url.toString());
+    applyTranslations();
+    updateLangButtons();
+  }
+
+  function applyTranslations() {
+    document.getElementById('t-eyebrow').textContent = t('eyebrow');
+    document.getElementById('t-title').textContent = t('title');
+    document.getElementById('t-subtitle').textContent = t('subtitle');
+    document.getElementById('t-date-label').textContent = t('date_label');
+    document.getElementById('change-btn').textContent = t('change');
+    document.getElementById('t-name-label').textContent = t('name_label');
+    document.getElementById('t-email-label').textContent = t('email_label');
+    document.getElementById('t-phone-label').textContent = t('phone_label');
+    document.getElementById('t-notes-label').textContent = t('notes_label');
+    document.getElementById('bk-name').placeholder = t('name_ph');
+    document.getElementById('bk-email').placeholder = t('email_ph');
+    document.getElementById('bk-phone').placeholder = t('phone_ph');
+    document.getElementById('bk-notes').placeholder = t('notes_ph');
+    document.getElementById('bk-submit-btn').textContent = t('submit_btn');
+    document.getElementById('t-bk-terms').innerHTML = t('terms');
+    document.getElementById('ds-body').innerHTML = t('ds_html');
+    document.getElementById('t-success-title').textContent = t('success_title');
+    document.getElementById('t-success-text').textContent = t('success_text');
+    document.querySelectorAll('[data-i18n="back_btn"], #t-back-btn').forEach(function(el) {
+      el.textContent = t('back_btn');
+    });
+    document.querySelector('#lang-switcher .active') && null;
+    document.title = t('title') + ' — idnex.de';
+    document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
+  }
+
+  function updateLangButtons() {
+    document.querySelectorAll('#bk-lang-list [data-lang]').forEach(function (a) {
+      a.classList.toggle('is-active', a.dataset.lang === lang);
+    });
+  }
+
+  function showStep(id) {
+    document.querySelectorAll('.bk-step').forEach(function (el) {
+      el.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  function formatDateDisplay(dateStr) {
+    var parts = dateStr.split('-');
+    var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    var locale = lang === 'ua' ? 'uk-UA' : lang === 'ru' ? 'ru-RU' : lang === 'en' ? 'en-US' : 'de-DE';
+    return d.toLocaleDateString(locale, options);
+  }
+
+  function formatTimeDisplay(timeStr) {
+    var parts = timeStr.split(':');
+    return parts[0] + ':' + parts[1];
+  }
+
+  function loadSlots(dateStr) {
+    var area = document.getElementById('slots-area');
+    var loadBtn = document.getElementById('load-slots-btn');
+
+    if (!dateStr) {
+      area.innerHTML = '<div class="slots-empty" style="color:#ff6b6b">Bitte zuerst ein Datum wählen.</div>';
+      return;
+    }
+
+    area.innerHTML = '<div class="slots-loading">' + t('loading') + '</div>';
+    if (loadBtn) loadBtn.disabled = true;
+
+    fetch(ERP + 'get_appointment_slots', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ date: dateStr, timezone: TZ })
+    })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      if (loadBtn) loadBtn.disabled = false;
+      var slots = (data.message || []).filter(function (s) { return s.availability; });
+      if (!slots.length) {
+        area.innerHTML = '<div class="slots-empty">' + t('no_slots') + '</div>';
+        return;
+      }
+      var grid = document.createElement('div');
+      grid.className = 'slots-grid';
+      slots.forEach(function (slot) {
+        var timeRaw = slot.time;
+        var timePart = timeRaw.replace(/^.*?(\d{2}:\d{2}:\d{2}).*$/, '$1');
+        var btn = document.createElement('button');
+        btn.className = 'slot-btn';
+        btn.textContent = formatTimeDisplay(timePart);
+        btn.type = 'button';
+        btn.addEventListener('click', function () {
+          selectedTime = timePart;
+          selectedDate = dateStr;
+          var label = formatDateDisplay(dateStr) + ', ' + formatTimeDisplay(timePart);
+          document.getElementById('selected-slot-label').textContent = label;
+          showStep('step-form');
+          document.getElementById('bk-name').focus();
+        });
+        grid.appendChild(btn);
+      });
+      area.innerHTML = '';
+      area.appendChild(grid);
+    })
+    .catch(function (err) {
+      console.error('Slot loading failed:', err);
+      if (loadBtn) loadBtn.disabled = false;
+      area.innerHTML = '<div class="slots-empty" style="color:#ff6b6b;border-left-color:#ff6b6b">'
+        + t('err_generic') + '</div>';
+    });
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function setStatus(text, type) {
+    var el = document.getElementById('bk-status');
+    el.textContent = text;
+    el.className = 'bk-status' + (type ? ' ' + type : '');
+  }
+
+  function submitBooking(e) {
+    e.preventDefault();
+    var name  = document.getElementById('bk-name').value.trim();
+    var email = document.getElementById('bk-email').value.trim();
+    var phone = document.getElementById('bk-phone').value.trim();
+    var notes = document.getElementById('bk-notes').value.trim();
+    var btn   = document.getElementById('bk-submit-btn');
+
+    if (!name) { setStatus(t('err_name'), 'err'); document.getElementById('bk-name').focus(); return; }
+    if (!email || !isValidEmail(email)) { setStatus(t('err_email'), 'err'); document.getElementById('bk-email').focus(); return; }
+
+    setStatus('', '');
+    btn.disabled = true;
+    btn.textContent = t('sending');
+
+    var contact = JSON.stringify({ name: name, email: email, number: phone, notes: notes });
+
+    fetch(ERP + 'create_appointment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': TOKEN },
+      body: JSON.stringify({ date: selectedDate, time: selectedTime, tz: TZ, contact: contact })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.message && data.message.name) {
+        var detail = document.getElementById('success-detail');
+        detail.innerHTML = '<strong>' + t('booked_for') + ':</strong><br>' +
+          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + ' Uhr<br><br>' +
+          '<strong>E-Mail:</strong><br>' + email;
+        showStep('step-success');
+      } else if (data.exception && data.exception.indexOf('DuplicateEntryError') !== -1) {
+        var detail2 = document.getElementById('success-detail');
+        detail2.innerHTML = '<strong>' + t('booked_for') + ':</strong><br>' +
+          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + ' Uhr<br><br>' +
+          '<strong>E-Mail:</strong><br>' + email;
+        showStep('step-success');
+      } else {
+        throw new Error(data.exception || 'unknown');
+      }
+    })
+    .catch(function () {
+      setStatus(t('err_generic'), 'err');
+      btn.disabled = false;
+      btn.textContent = t('submit_btn');
+    });
+  }
+
+  function init() {
+    lang = getLang();
+    applyTranslations();
+    updateLangButtons();
+
+    // Language switcher — globe dropdown
+    var langBtn  = document.getElementById('bk-lang-btn');
+    var langList = document.getElementById('bk-lang-list');
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      langList.classList.toggle('is-open');
+    });
+    langList.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-lang]');
+      if (!a) return;
+      e.preventDefault();
+      setLang(a.dataset.lang);
+      langList.classList.remove('is-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!langBtn.contains(e.target) && !langList.contains(e.target)) {
+        langList.classList.remove('is-open');
+      }
+    });
+
+    // Theme toggle
+    var themeBtn  = document.getElementById('bk-theme-toggle');
+    var sunIcon   = themeBtn.querySelector('.bk-theme-icon--sun');
+    var moonIcon  = themeBtn.querySelector('.bk-theme-icon--moon');
+    function syncThemeIcons() {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      sunIcon.style.display  = isLight ? 'none'  : 'block';
+      moonIcon.style.display = isLight ? 'block' : 'none';
+    }
+    syncThemeIcons();
+    themeBtn.addEventListener('click', function () {
+      var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('idnex-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('idnex-theme', 'light');
+      }
+      syncThemeIcons();
+    });
+
+    // Date limits: today → today + 30 days
+    var today = new Date();
+    var maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 30);
+    var dateInput = document.getElementById('booking-date');
+    dateInput.min = today.toISOString().split('T')[0];
+    dateInput.max = maxDate.toISOString().split('T')[0];
+
+    function triggerSlotLoad() {
+      var v = dateInput.value;
+      if (!v) return;
+      var parts = v.split('-');
+      var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      if (d.getDay() === 0 || d.getDay() === 6) {
+        document.getElementById('slots-area').innerHTML =
+          '<div class="slots-empty">' + t('no_slots') + '</div>';
+        return;
+      }
+      loadSlots(v);
+    }
+
+    dateInput.addEventListener('change', triggerSlotLoad);
+    dateInput.addEventListener('input',  triggerSlotLoad);
+
+    document.getElementById('load-slots-btn').addEventListener('click', triggerSlotLoad);
+
+    // Change slot button
+    document.getElementById('change-btn').addEventListener('click', function () {
+      showStep('step-date');
+      document.getElementById('booking-date').focus();
+    });
+
+    // Form submit
+    document.getElementById('booking-form').addEventListener('submit', submitBooking);
+  }
+
+  // DOM already ready (script at end of body) — call init directly
+  try { init(); } catch(e) {
+    document.getElementById('slots-area').innerHTML =
+      '<div class="slots-empty" style="color:#ff6b6b">Init error: ' + e.message + '</div>';
+  }
+
+  // Global hook for inline onclick fallback
+  window._bkLoad = function() {
+    try { triggerSlotLoad(); } catch(e) {
+      var area = document.getElementById('slots-area');
+      if (area) area.innerHTML =
+        '<div class="slots-empty" style="color:#ff6b6b">Error: ' + e.message + '</div>';
+    }
+  };
+}());
+</script>
+
+<script>
+(function() {
+  var overlay = document.getElementById('ds-modal');
+  var closeBtn = document.getElementById('ds-close');
+  document.addEventListener('click', function(e) {
+    var t = e.target.closest('.ds-open');
+    if (t) { e.preventDefault(); overlay.classList.add('is-open'); }
+  });
+  closeBtn.addEventListener('click', function() { overlay.classList.remove('is-open'); });
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('is-open'); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') overlay.classList.remove('is-open'); });
+}());
+</script>
+</body>
+</html>
