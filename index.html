@@ -143,8 +143,14 @@
 
 <!-- ==================== HERO ==================== -->
 <section class="hero-section" id="hero-section">
-  <img class="hero-section__bg hero-section__bg--dark" src="./images/heronew.png" alt="" aria-hidden="true" />
-  <img class="hero-section__bg hero-section__bg--light" src="./images/hero_light.png" alt="" aria-hidden="true" />
+  <picture>
+    <source srcset="./images/heronew.webp" type="image/webp">
+    <img class="hero-section__bg hero-section__bg--dark" src="./images/heronew.png" alt="" aria-hidden="true" />
+  </picture>
+  <picture>
+    <source srcset="./images/hero_light.webp" type="image/webp">
+    <img class="hero-section__bg hero-section__bg--light" src="./images/hero_light.png" alt="" aria-hidden="true" />
+  </picture>
   <div class="container">
     <p class="hero-section__location" data-i18n="hero_location">ELMSHORN · HAMBURG · DEUTSCHLAND</p>
     <h1 class="hero-section__title" data-i18n-html="hero_h1_html">
@@ -449,7 +455,10 @@
       <li class="chefs-section__item">
         <article class="chef-card">
           <div class="chef-photo-hex">
-            <img src="./images/my_photo_crop.jpg" alt="Iryna Dohadailo — IT-Automatisierung & Prozessberatung" class="chef-card__photo" />
+            <picture>
+              <source srcset="./images/my_photo_crop.webp" type="image/webp">
+              <img src="./images/my_photo_crop.jpg" alt="Iryna Dohadailo — IT-Automatisierung & Prozessberatung" class="chef-card__photo" />
+            </picture>
           </div>
           <div class="chef-card__name-block">
             <p class="chef-card__role" data-i18n="iryna_role">IT-Automatisierung &amp; Prozessberatung</p>
