@@ -984,10 +984,10 @@
       syncThemeIcons();
     });
 
-    // Date limits: today → today + 30 days
+    // Date limits: today → today + 60 days
     var today = new Date();
     var maxDate = new Date();
-    maxDate.setDate(maxDate.getDate() + 30);
+    maxDate.setDate(maxDate.getDate() + 60);
     var dateInput = document.getElementById('booking-date');
     dateInput.min = today.toISOString().split('T')[0];
     dateInput.max = maxDate.toISOString().split('T')[0];

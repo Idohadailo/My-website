@@ -5088,3 +5088,29 @@ textarea.input__control::placeholder {
     padding: 12px 20px;
   }
 }
+
+/* === About section: stats aligned with text, not heading (desktop) === */
+@media (min-width: 768px) {
+  .traditions-section__container {
+    display: block !important;
+  }
+  .traditions-section__body {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .traditions-section__content {
+    flex: 1;
+  }
+  .traditions-section__stats {
+    align-self: stretch !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    align-content: stretch !important;
+    min-width: 320px !important;
+  }
+  .traditions-section__stats .stat-item {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+}
