@@ -19,29 +19,126 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "idNex",
-      "description": "IT-Dienstleistungen, Prozessautomatisierung, Webdesign und Unternehmensberatung für KMU. Spezialisiert auf Make, n8n, ERPNext, KI-Agenten und CRM-Automation.",
-      "url": "https://idnex.de/",
-      "telephone": "+491752538771",
-      "email": "info@idnex.de",
-      "vatID": "DE461318962",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Feldstraße 24",
-        "addressLocality": "Elmshorn",
-        "postalCode": "25335",
-        "addressRegion": "Schleswig-Holstein",
-        "addressCountry": "DE"
-      },
-      "areaServed": ["Deutschland", "Hamburg", "Schleswig-Holstein", "Europa"],
-      "founder": {
-        "@type": "Person",
-        "name": "Iryna Dohadailo",
-        "jobTitle": "IT-Automatisierungs-Expertin",
-        "sameAs": "https://linkedin.com/in/iryna-dohadailo"
-      },
-      "sameAs": ["https://linkedin.com/in/iryna-dohadailo"]
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "ProfessionalService"],
+          "@id": "https://idnex.de/#business",
+          "name": "idNex",
+          "description": "IT-Automatisierung und Prozessoptimierung für KMU in Deutschland. Spezialisiert auf Make, n8n, ERPNext, KI-Agenten und CRM-Automation.",
+          "url": "https://idnex.de/",
+          "telephone": "+491752538771",
+          "email": "info@idnex.de",
+          "vatID": "DE461318962",
+          "priceRange": "ab 60 €/Std.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Feldstraße 24",
+            "addressLocality": "Elmshorn",
+            "postalCode": "25335",
+            "addressRegion": "Schleswig-Holstein",
+            "addressCountry": "DE"
+          },
+          "areaServed": [
+            {"@type": "Country", "name": "Deutschland"},
+            {"@type": "City", "name": "Hamburg"},
+            {"@type": "City", "name": "Elmshorn"}
+          ],
+          "founder": {"@id": "https://idnex.de/#iryna"},
+          "employee": {"@id": "https://idnex.de/#iryna"},
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "IT-Leistungen",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Prozessautomatisierung",
+                  "description": "Automatisierung von Geschäftsprozessen mit Make, n8n und Zapier. Dokumenten-Workflows, Multi-System-Integrationen, automatische Reports.",
+                  "provider": {"@id": "https://idnex.de/#business"}
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "1200",
+                  "priceCurrency": "EUR",
+                  "minPrice": "1200"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "KI & intelligente Agenten",
+                  "description": "KI-Sprachassistenten, intelligente Wissenssuche und Social-Media-Automatisierung mit KI. Reale Anwendungsfälle mit n8n, VAPI und Vektor-Datenbanken.",
+                  "provider": {"@id": "https://idnex.de/#business"}
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "2500",
+                  "priceCurrency": "EUR",
+                  "minPrice": "2500"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "CRM & Marketing-Automation",
+                  "description": "E-Mail-Sequenzen, Lead-Nurturing, Funnel-Automatisierung und CRM-Einrichtung mit HubSpot und ActiveCampaign.",
+                  "provider": {"@id": "https://idnex.de/#business"}
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "60",
+                  "priceCurrency": "EUR",
+                  "unitText": "Stunde"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "ERP & Digitalisierung",
+                  "description": "ERPNext-Einführung für KMU — Open Source ERP ohne Lizenzkosten. e-Rechnung, DATEV-Export, GoBD-konform. Spezialisierung auf Unternehmen in Deutschland.",
+                  "provider": {"@id": "https://idnex.de/#business"}
+                }
+              }
+            ]
+          },
+          "sameAs": ["https://www.linkedin.com/in/iryna-dohadailo"]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://idnex.de/#iryna",
+          "name": "Iryna Dohadailo",
+          "jobTitle": "IT-Automatisierungs-Expertin",
+          "worksFor": {"@id": "https://idnex.de/#business"},
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Elmshorn",
+            "addressCountry": "DE"
+          },
+          "knowsAbout": [
+            "Prozessautomatisierung",
+            "ERPNext",
+            "Make.com",
+            "n8n",
+            "KI-Agenten",
+            "CRM-Automation",
+            "e-Rechnung",
+            "Geschäftsprozessoptimierung"
+          ],
+          "sameAs": ["https://www.linkedin.com/in/iryna-dohadailo"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://idnex.de/#website",
+          "url": "https://idnex.de/",
+          "name": "idNex",
+          "inLanguage": "de",
+          "publisher": {"@id": "https://idnex.de/#business"}
+        }
+      ]
     }
     </script>
     <!-- Theme: apply saved preference before CSS to prevent flash -->
