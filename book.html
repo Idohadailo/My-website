@@ -156,7 +156,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding: 48px 16px 64px;
+      padding: 16px 16px 24px;
     }
 
     /* CARD */
@@ -165,10 +165,10 @@
       max-width: 560px;
       background: var(--mid);
       border: 1px solid var(--border);
-      padding: 40px 40px 48px;
+      padding: 22px 28px 28px;
     }
     @media (max-width: 600px) {
-      .bk-card { padding: 28px 20px 36px; }
+      .bk-card { padding: 16px 16px 20px; }
     }
 
     .bk-eyebrow {
@@ -177,19 +177,25 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--cyan);
-      margin-bottom: 10px;
+      margin-bottom: 4px;
     }
     .bk-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(20px, 5vw, 28px);
+      font-size: clamp(17px, 4vw, 22px);
       font-weight: 700;
       line-height: 1.2;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     .bk-subtitle {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 32px;
+      margin-bottom: 4px;
+    }
+    .bk-zoom-note {
+      font-size: 13px;
+      color: var(--cyan);
+      margin-bottom: 14px;
+      opacity: 0.85;
     }
 
     /* STEP */
@@ -305,8 +311,8 @@
       justify-content: space-between;
       background: rgba(26,188,172,0.08);
       border: 1px solid var(--border);
-      padding: 12px 16px;
-      margin-bottom: 28px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
     }
     .selected-slot-text {
       font-family: 'Orbitron', sans-serif;
@@ -328,7 +334,7 @@
     .change-btn:hover { border-color: var(--cyan); color: var(--cyan); }
 
     /* FORM */
-    .bk-field { margin-bottom: 16px; }
+    .bk-field { margin-bottom: 12px; }
     .bk-field label {
       display: block;
       font-family: 'Orbitron', sans-serif;
@@ -354,7 +360,7 @@
     .bk-field textarea:focus { border-color: var(--cyan); }
     .bk-field input::placeholder,
     .bk-field textarea::placeholder { color: rgba(240,244,248,0.3); }
-    .bk-field textarea { min-height: 90px; }
+    .bk-field textarea { min-height: 70px; }
 
     /* SUBMIT BUTTON */
     .bk-submit {
@@ -509,6 +515,139 @@
     .ds-body a { color: var(--cyan); }
     .ds-body ul { padding-left: 18px; margin-bottom: 10px; }
     .ds-body li { margin-bottom: 4px; }
+
+    /* MEETING TYPE SELECTOR */
+    .meet-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .meet-btn {
+      flex: 1;
+      padding: 7px 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 6px;
+      font-family: 'Exo 2', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .meet-btn.active {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(26,188,172,0.08);
+    }
+    .meet-btn:hover:not(.active) { border-color: var(--cyan); color: var(--light); }
+
+    /* CUSTOM CALENDAR */
+    .bk-calendar { width: 100%; user-select: none; }
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .cal-nav {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--light);
+      width: 26px;
+      height: 26px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .cal-nav:hover { border-color: var(--cyan); color: var(--cyan); }
+    .cal-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+    .cal-month-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 2px;
+    }
+    .cal-wday {
+      text-align: center;
+      font-size: 10px;
+      color: var(--muted);
+      padding: 3px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+    .cal-day {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-size: 13px;
+      font-family: 'Exo 2', sans-serif;
+      border: 1px solid transparent;
+      cursor: default;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      position: relative;
+    }
+    .cal-day--empty { visibility: hidden; }
+    .cal-day--past, .cal-day--weekend, .cal-day--unavailable {
+      color: rgba(240,244,248,0.22);
+      pointer-events: none;
+    }
+    [data-theme="light"] .cal-day--past,
+    [data-theme="light"] .cal-day--weekend,
+    [data-theme="light"] .cal-day--unavailable {
+      color: rgba(10,26,24,0.22);
+    }
+    .cal-day--checking {
+      color: var(--muted);
+      cursor: wait;
+    }
+    .cal-day--checking::after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--cyan);
+      border-radius: 50%;
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.6;
+      animation: cal-pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes cal-pulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+    .cal-day--available {
+      color: var(--light);
+      cursor: pointer;
+    }
+    .cal-day--available:hover {
+      background: rgba(26,188,172,0.12);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .cal-day--selected {
+      background: var(--cyan) !important;
+      color: #fff !important;
+      border-color: var(--cyan) !important;
+      font-weight: 700;
+    }
+    .cal-day--today { border-color: rgba(26,188,172,0.4); }
   </style>
 </head>
 <body>
@@ -552,13 +691,22 @@
     <p class="bk-eyebrow" id="t-eyebrow">Kostenlose Erstberatung</p>
     <h1 class="bk-title" id="t-title">Termin buchen</h1>
     <p class="bk-subtitle" id="t-subtitle">30 Minuten · Montag–Freitag · 9:00–15:00 Uhr</p>
-
     <!-- STEP 1: DATE + SLOTS -->
     <div class="bk-step active" id="step-date">
-      <label class="date-label" id="t-date-label" for="booking-date">Datum wählen</label>
-      <div class="date-input-row">
-        <input type="date" id="booking-date">
-        <button type="button" class="load-slots-btn" id="load-slots-btn" onclick="window._bkLoad()">→</button>
+      <div class="meet-selector" id="meet-selector">
+        <button type="button" class="meet-btn active" data-meet="Zoom" id="meet-zoom">Zoom</button>
+        <button type="button" class="meet-btn" data-meet="Google Meet" id="meet-gmeet">Google Meet</button>
+      </div>
+
+      <label class="date-label" id="t-date-label">Datum wählen</label>
+      <div class="bk-calendar" id="bk-calendar">
+        <div class="cal-header">
+          <button type="button" class="cal-nav" id="cal-prev">&#8249;</button>
+          <span class="cal-month-label" id="cal-month-label"></span>
+          <button type="button" class="cal-nav" id="cal-next">&#8250;</button>
+        </div>
+        <div class="cal-weekdays" id="cal-weekdays"></div>
+        <div class="cal-grid" id="cal-grid"></div>
       </div>
       <div id="slots-area"></div>
     </div>
@@ -623,13 +771,20 @@
 (function () {
   var ERP   = 'https://erp.idnex.de/api/method/erpnext.www.book_appointment.index.';
   var TOKEN = 'token e48df49ba1f2f34:70db560d7fd1823';
-  var TZ  = 'Europe/Berlin';
+  var TZ  = (typeof Intl !== 'undefined' && Intl.DateTimeFormat().resolvedOptions().timeZone) || 'Europe/Berlin';
+
+  var selectedMeetType = 'Zoom';
+  var calYear, calMonth;
+  var calAvailCache = {}; // 'YYYY-MM-DD' → true/false
+  var selectedCalDate = null;
 
   var T = {
     de: {
       eyebrow:       'Kostenlose Erstberatung',
       title:         'Termin buchen',
       subtitle:      '30 Minuten · Montag–Freitag · 9:00–15:00 Uhr',
+      meet_zoom:     'Zoom-Videocall',
+      meet_gmeet:    'Google Meet',
       date_label:    'Datum wählen',
       loading:       'Lade verfügbare Zeiten…',
       no_slots:      'Keine Termine an diesem Tag verfügbar. Bitte wählen Sie einen anderen Tag.',
@@ -659,6 +814,8 @@
       eyebrow:       'Free initial consultation',
       title:         'Book appointment',
       subtitle:      '30 minutes · Monday–Friday · 9:00–15:00',
+      meet_zoom:     'Zoom video call',
+      meet_gmeet:    'Google Meet',
       date_label:    'Select a date',
       loading:       'Loading available times…',
       no_slots:      'No appointments available on this day. Please choose another date.',
@@ -688,6 +845,8 @@
       eyebrow:       'Безкоштовна перша консультація',
       title:         'Записатись на зустріч',
       subtitle:      '30 хвилин · Понеділок–П\'ятниця · 9:00–15:00',
+      meet_zoom:     'Zoom відеодзвінок',
+      meet_gmeet:    'Google Meet',
       date_label:    'Виберіть дату',
       loading:       'Завантаження доступного часу…',
       no_slots:      'Немає вільних слотів на цей день. Будь ласка, виберіть інший день.',
@@ -717,6 +876,8 @@
       eyebrow:       'Бесплатная первичная консультация',
       title:         'Записаться на встречу',
       subtitle:      '30 минут · Понедельник–Пятница · 9:00–15:00',
+      meet_zoom:     'Zoom видеозвонок',
+      meet_gmeet:    'Google Meet',
       date_label:    'Выберите дату',
       loading:       'Загрузка доступного времени…',
       no_slots:      'Нет свободных слотов на этот день. Пожалуйста, выберите другой день.',
@@ -773,6 +934,8 @@
     document.getElementById('t-eyebrow').textContent = t('eyebrow');
     document.getElementById('t-title').textContent = t('title');
     document.getElementById('t-subtitle').textContent = t('subtitle');
+    document.getElementById('meet-zoom').textContent = t('meet_zoom');
+    document.getElementById('meet-gmeet').textContent = t('meet_gmeet');
     document.getElementById('t-date-label').textContent = t('date_label');
     document.getElementById('change-btn').textContent = t('change');
     document.getElementById('t-name-label').textContent = t('name_label');
@@ -791,6 +954,10 @@
     document.querySelectorAll('[data-i18n="back_btn"], #t-back-btn').forEach(function(el) {
       el.textContent = t('back_btn');
     });
+    if (selectedDate && selectedTime) {
+      document.getElementById('selected-slot-label').textContent =
+        formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime);
+    }
     document.querySelector('#lang-switcher .active') && null;
     document.title = t('title') + ' — idnex.de';
     document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
@@ -812,14 +979,180 @@
   function formatDateDisplay(dateStr) {
     var parts = dateStr.split('-');
     var d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-    var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    var locale = lang === 'ua' ? 'uk-UA' : lang === 'ru' ? 'ru-RU' : lang === 'en' ? 'en-US' : 'de-DE';
-    return d.toLocaleDateString(locale, options);
+    var dayIdx = (d.getDay() + 6) % 7; // 0=Mon … 6=Sun
+    var day = d.getDate();
+    var month = d.getMonth();
+    var year = d.getFullYear();
+    if (lang === 'en') {
+      return CAL_WDAYS_FULL_EN[dayIdx] + ', ' + day + ' ' + CAL_MONTHS_EN[month] + ' ' + year;
+    } else if (lang === 'ua') {
+      return CAL_WDAYS_FULL_UA[dayIdx] + ', ' + day + ' ' + CAL_MONTHS_GEN_UA[month] + ' ' + year;
+    } else if (lang === 'ru') {
+      return CAL_WDAYS_FULL_RU[dayIdx] + ', ' + day + ' ' + CAL_MONTHS_GEN_RU[month] + ' ' + year;
+    } else {
+      return CAL_WDAYS_FULL_DE[dayIdx] + ', ' + day + '. ' + CAL_MONTHS_DE[month] + ' ' + year;
+    }
   }
 
   function formatTimeDisplay(timeStr) {
     var parts = timeStr.split(':');
     return parts[0] + ':' + parts[1];
+  }
+
+  var CAL_WDAYS_DE = ['Mo','Di','Mi','Do','Fr','Sa','So'];
+  var CAL_WDAYS_EN = ['Mo','Tu','We','Th','Fr','Sa','Su'];
+  var CAL_WDAYS_UA = ['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
+  var CAL_WDAYS_RU = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+  var CAL_MONTHS_DE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  var CAL_MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var CAL_MONTHS_UA = ['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень'];
+  var CAL_MONTHS_RU = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+
+  var CAL_WDAYS_FULL_DE = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+  var CAL_WDAYS_FULL_EN = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  var CAL_WDAYS_FULL_UA = ['Понеділок','Вівторок','Середа','Четвер','П\'ятниця','Субота','Неділя'];
+  var CAL_WDAYS_FULL_RU = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+  var CAL_MONTHS_GEN_UA = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+  var CAL_MONTHS_GEN_RU = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+
+  function getCalWdays() {
+    if (lang === 'en') return CAL_WDAYS_EN;
+    if (lang === 'ua') return CAL_WDAYS_UA;
+    if (lang === 'ru') return CAL_WDAYS_RU;
+    return CAL_WDAYS_DE;
+  }
+  function getCalMonths() {
+    if (lang === 'en') return CAL_MONTHS_EN;
+    if (lang === 'ua') return CAL_MONTHS_UA;
+    if (lang === 'ru') return CAL_MONTHS_RU;
+    return CAL_MONTHS_DE;
+  }
+
+  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+  function dateKey(y, m, d) { return y + '-' + pad2(m+1) + '-' + pad2(d); }
+
+  function isWeekend(y, m, d) {
+    var dow = new Date(y, m, d).getDay();
+    return dow === 0 || dow === 6;
+  }
+
+  function renderCalendar(y, m) {
+    calYear = y; calMonth = m;
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var maxDate = new Date(); maxDate.setDate(maxDate.getDate() + 60); maxDate.setHours(0,0,0,0);
+
+    // Header
+    document.getElementById('cal-month-label').textContent = getCalMonths()[m] + ' ' + y;
+
+    // Weekday headers (Mon first)
+    var wdays = getCalWdays();
+    var wdayEl = document.getElementById('cal-weekdays');
+    wdayEl.innerHTML = '';
+    for (var i = 0; i < 7; i++) {
+      var span = document.createElement('span');
+      span.className = 'cal-wday';
+      span.textContent = wdays[i];
+      wdayEl.appendChild(span);
+    }
+
+    // Grid
+    var grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+    var firstDay = new Date(y, m, 1).getDay(); // 0=Sun
+    var offset = (firstDay === 0) ? 6 : firstDay - 1; // Mon=0
+    var daysInMonth = new Date(y, m + 1, 0).getDate();
+
+    // Empty cells before 1st
+    for (var k = 0; k < offset; k++) {
+      var empty = document.createElement('div');
+      empty.className = 'cal-day cal-day--empty';
+      grid.appendChild(empty);
+    }
+
+    var daysToFetch = [];
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var cell = document.createElement('div');
+      cell.className = 'cal-day';
+      cell.textContent = d;
+      var dk = dateKey(y, m, d);
+      var cellDate = new Date(y, m, d); cellDate.setHours(0,0,0,0);
+
+      if (cellDate < today || cellDate > maxDate) {
+        cell.classList.add('cal-day--past');
+      } else if (isWeekend(y, m, d)) {
+        cell.classList.add('cal-day--weekend');
+      } else {
+        // Check today marker
+        if (cellDate.getTime() === today.getTime()) cell.classList.add('cal-day--today');
+        if (selectedCalDate === dk) {
+          cell.classList.add('cal-day--selected');
+        }
+        if (dk in calAvailCache) {
+          cell.classList.add(calAvailCache[dk] ? 'cal-day--available' : 'cal-day--unavailable');
+          if (calAvailCache[dk]) {
+            (function(dk_, cell_) {
+              cell_.addEventListener('click', function() { onCalDayClick(dk_, cell_); });
+            })(dk, cell);
+          }
+        } else {
+          cell.classList.add('cal-day--checking');
+          daysToFetch.push({ dk: dk, cell: cell });
+        }
+      }
+      grid.appendChild(cell);
+    }
+
+    // Prev/next buttons
+    var now = new Date(); now.setHours(0,0,0,0);
+    var prevBtn = document.getElementById('cal-prev');
+    var nextBtn = document.getElementById('cal-next');
+    prevBtn.disabled = (y < now.getFullYear() || (y === now.getFullYear() && m <= now.getMonth()));
+    nextBtn.disabled = (new Date(y, m + 1, 1) > maxDate);
+
+    // Fetch availability for uncached weekdays
+    if (daysToFetch.length) {
+      daysToFetch.forEach(function(item) {
+        fetch(ERP + 'get_appointment_slots', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ date: item.dk, timezone: TZ })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var hasSlot = (data.message || []).some(function(s) { return s.availability; });
+          calAvailCache[item.dk] = hasSlot;
+          // Only update if cell is still in the DOM (user hasn't navigated away)
+          if (item.cell.isConnected) {
+            item.cell.classList.remove('cal-day--checking');
+            item.cell.classList.add(hasSlot ? 'cal-day--available' : 'cal-day--unavailable');
+            if (hasSlot) {
+              (function(dk_, cell_) {
+                cell_.addEventListener('click', function() { onCalDayClick(dk_, cell_); });
+              })(item.dk, item.cell);
+            }
+          }
+        })
+        .catch(function() {
+          calAvailCache[item.dk] = false;
+          if (item.cell.isConnected) {
+            item.cell.classList.remove('cal-day--checking');
+            item.cell.classList.add('cal-day--unavailable');
+          }
+        });
+      });
+    }
+  }
+
+  function onCalDayClick(dk, cell) {
+    selectedCalDate = dk;
+    // Remove selected from all cells
+    document.querySelectorAll('.cal-day--selected').forEach(function(c) {
+      c.classList.remove('cal-day--selected');
+    });
+    cell.classList.add('cal-day--selected');
+    loadSlots(dk);
   }
 
   function loadSlots(dateStr) {
@@ -828,6 +1161,13 @@
 
     if (!dateStr) {
       area.innerHTML = '<div class="slots-empty" style="color:#ff6b6b">Bitte zuerst ein Datum wählen.</div>';
+      return;
+    }
+
+    // Instant weekend check — no API call needed
+    var dayOfWeek = new Date(dateStr + 'T12:00:00').getDay(); // 0=Sun, 6=Sat
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      area.innerHTML = '<div class="slots-empty">' + t('no_slots') + '</div>';
       return;
     }
 
@@ -905,7 +1245,7 @@
     btn.disabled = true;
     btn.textContent = t('sending');
 
-    var contact = JSON.stringify({ name: name, email: email, number: phone, notes: notes });
+    var contact = JSON.stringify({ name: name, email: email, number: phone, notes: notes, conference_type: selectedMeetType });
 
     fetch(ERP + 'create_appointment', {
       method: 'POST',
@@ -917,13 +1257,13 @@
       if (data.message && data.message.name) {
         var detail = document.getElementById('success-detail');
         detail.innerHTML = '<strong>' + t('booked_for') + ':</strong><br>' +
-          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + ' Uhr<br><br>' +
+          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + (lang === 'de' ? ' Uhr' : '') + '<br><br>' +
           '<strong>E-Mail:</strong><br>' + email;
         showStep('step-success');
       } else if (data.exception && data.exception.indexOf('DuplicateEntryError') !== -1) {
         var detail2 = document.getElementById('success-detail');
         detail2.innerHTML = '<strong>' + t('booked_for') + ':</strong><br>' +
-          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + ' Uhr<br><br>' +
+          formatDateDisplay(selectedDate) + ', ' + formatTimeDisplay(selectedTime) + (lang === 'de' ? ' Uhr' : '') + '<br><br>' +
           '<strong>E-Mail:</strong><br>' + email;
         showStep('step-success');
       } else {
@@ -984,36 +1324,36 @@
       syncThemeIcons();
     });
 
-    // Date limits: today → today + 60 days
-    var today = new Date();
-    var maxDate = new Date();
-    maxDate.setDate(maxDate.getDate() + 60);
-    var dateInput = document.getElementById('booking-date');
-    dateInput.min = today.toISOString().split('T')[0];
-    dateInput.max = maxDate.toISOString().split('T')[0];
+    // Calendar init
+    var now = new Date();
+    renderCalendar(now.getFullYear(), now.getMonth());
 
-    function triggerSlotLoad() {
-      var v = dateInput.value;
-      if (!v) return;
-      var parts = v.split('-');
-      var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
-      if (d.getDay() === 0 || d.getDay() === 6) {
-        document.getElementById('slots-area').innerHTML =
-          '<div class="slots-empty">' + t('no_slots') + '</div>';
-        return;
-      }
-      loadSlots(v);
-    }
+    document.getElementById('cal-prev').addEventListener('click', function() {
+      var m = calMonth - 1, y = calYear;
+      if (m < 0) { m = 11; y--; }
+      renderCalendar(y, m);
+      document.getElementById('slots-area').innerHTML = '';
+    });
+    document.getElementById('cal-next').addEventListener('click', function() {
+      var m = calMonth + 1, y = calYear;
+      if (m > 11) { m = 0; y++; }
+      renderCalendar(y, m);
+      document.getElementById('slots-area').innerHTML = '';
+    });
 
-    dateInput.addEventListener('change', triggerSlotLoad);
-    dateInput.addEventListener('input',  triggerSlotLoad);
-
-    document.getElementById('load-slots-btn').addEventListener('click', triggerSlotLoad);
+    // Meeting type selector
+    document.getElementById('meet-selector').addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-meet]');
+      if (!btn) return;
+      selectedMeetType = btn.dataset.meet;
+      document.querySelectorAll('.meet-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.meet === selectedMeetType);
+      });
+    });
 
     // Change slot button
     document.getElementById('change-btn').addEventListener('click', function () {
       showStep('step-date');
-      document.getElementById('booking-date').focus();
     });
 
     // Form submit
@@ -1026,14 +1366,7 @@
       '<div class="slots-empty" style="color:#ff6b6b">Init error: ' + e.message + '</div>';
   }
 
-  // Global hook for inline onclick fallback
-  window._bkLoad = function() {
-    try { triggerSlotLoad(); } catch(e) {
-      var area = document.getElementById('slots-area');
-      if (area) area.innerHTML =
-        '<div class="slots-empty" style="color:#ff6b6b">Error: ' + e.message + '</div>';
-    }
-  };
+  window._bkLoad = function() {}; // no-op, calendar replaced date input
 }());
 </script>
 
